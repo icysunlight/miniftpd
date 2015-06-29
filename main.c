@@ -8,17 +8,7 @@
 #include "ftpproto.h"
 
 
-int printconf();
-void hash_test();
 
-
-typedef struct str
-{
-    char* name;
-    char* school;
-}stu_t;
-
-unsigned int hash_fun(void* key,int hashtable_size);
 //客户端连接数限制
 static int clients;
 void check_clients(session_t* sess);
@@ -31,6 +21,7 @@ int add_client(unsigned int ip);
 int del_client(pid_t pid);
 unsigned int hash_fun_limit(void* key,int hashtable_size);
 
+char* listenip = NULL;
 
 int main()
 {
@@ -39,6 +30,15 @@ int main()
         fprintf(stderr,"miniftpd should start from root.\n");
         exit(EXIT_FAILURE);
     }
+
+    if ( tunable_listen_address == NULL) 
+    {
+        //绑定到eth0对应的ip
+        listenip = (char*)malloc(sizeof(char) * 128);
+        getlocalip(listenip);
+    }
+    else
+        strcpy(listenip,tunable_listen_address);
 
     parseconf_load_file(CONFFILE);
     printconf();
@@ -50,12 +50,12 @@ int main()
     hash_ip_clients = hashtable_init(2 * tunable_max_clients,hash_fun_limit);
     hash_pid_ip = hashtable_init(2 * tunable_max_clients,hash_fun_limit);
     signal(SIGCHLD,handle_sigchld);
-    int listenfd = tcp_srv("192.168.1.3",5188);
+    int listenfd = tcp_srv(listenip,5188);
     
     pid_t pid;
     int conn;
 
-    daemon(0,0);
+    //daemon(0,0);
 
     while (1)
     {
@@ -69,9 +69,7 @@ int main()
         init_session(&sessioninf,conn);
         sessioninf.ip = addr.sin_addr.s_addr;
         sessioninf.clients = ++clients;
-        printf("aaa\n");
         sessioninf.ip_clients = add_client(addr.sin_addr.s_addr);
-        printf("aaa\n");
 
         pid = fork();
         if (-1 == pid)
@@ -88,6 +86,7 @@ int main()
         }
         if (pid > 0)
         {
+            //添加信号，先将pid和ip加入限制，再运行子程序
             hashtable_add(hash_pid_ip,&pid,sizeof(pid),&addr.sin_addr.s_addr,sizeof(addr.sin_addr.s_addr));
             close(conn);
         }
@@ -96,28 +95,12 @@ int main()
 
     hashtable_destroy(&hash_ip_clients);
     hashtable_destroy(&hash_pid_ip);
+    free(listenip);
 
     return 0;
 }
 
 
-int printconf()
-{
-    printf("listen address:%s\n",tunable_listen_address);
-    printf("listen_port:%u\n",tunable_listen_port);
-    printf("max_clients:%u\n",tunable_max_clients);
-    printf("max_per_ip:%u\n",tunable_max_per_ip);
-    printf("accept_timeout:%u\n",tunable_accept_timeout);
-    printf("connect_timeout:%u\n",tunable_connect_timeout);
-    printf("idle_session_timeout:%u\n",tunable_idle_session_timeout);
-    printf("data_connection_timeout:%u\n",tunable_data_connection_timeout);
-    printf("local_umask:%o\n",tunable_local_umask);
-    printf("upload_max_rate:%u\n",tunable_upload_max_rate);
-    printf("download_max_rate:%u\n",tunable_download_max_rate);
-    printf("pasv_enable:%d\n",tunable_pasv_enable);
-    printf("port_enable:%d\n",tunable_port_enable);
-    return 0;
-}
 
 unsigned int hash_fun(void* key,int hashtable_size)
 {
@@ -131,34 +114,6 @@ unsigned int hash_fun(void* key,int hashtable_size)
     return ( hash & 0x7fffffff ) % hashtable_size;
 }
 
-void hash_test()
-{
-    stu_t stu[3] = {
-        {"aaa","12345"},
-        {"bbb","dadad"},
-        {"ccc","xxxxx"},
-    };
-
-    hashtable_t* hash = hashtable_init(5,hash_fun);
-    int i = 0;
-    for ( i = 0 ; i < 3 ; ++i)
-    {
-        hashtable_add(hash,stu[i].name,strlen(stu[i].name),stu[i].school,strlen(stu[i].name));
-    }
-
-    hashtable_del(hash,"aaa",strlen("aaa"));
-    hashtable_add(hash,stu[0].name,strlen(stu[0].name),stu[0].school,strlen(stu[0].name));
-
-
-    char *str = hashtable_search(hash,"aaa",3);
-    if  ( NULL == str )
-        printf("not fount\n");
-    else
-        printf("name:\"aaa\",school:%s\n",str);
-
-
-    hashtable_destroy(&hash);
-}
 void check_clients(session_t* sess)
 {
     if ( tunable_max_per_ip > 0 && sess->ip_clients > tunable_max_per_ip)
@@ -172,6 +127,9 @@ void check_clients(session_t* sess)
         exit(EXIT_FAILURE);
     }
 }
+/*
+ * 接收子进程退出消息，维护clients变量和每ip客户端数目
+ */
 void handle_sigchld(int signal)
 {
     pid_t pid;

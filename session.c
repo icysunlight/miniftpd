@@ -3,7 +3,6 @@
 #include "str.h"
 #include "ftpproto.h"
 #include "ftpnobody.h"
-#include <pwd.h>
 #include "common.h"
 #include "ftpipc.h"
 
@@ -51,6 +50,20 @@ int begin_session(session_t* sessioninf)
     }
     
     return 0;
+}
+
+void clear_session(session_t* ssinf)
+{
+    clear_transfer(ssinf);
+
+    if ( -1 != ssinf->nobodyfd )
+        close(ssinf->nobodyfd); 
+    if ( -1 != ssinf->protofd )
+        close(ssinf->protofd); 
+    if ( -1 != ssinf->ctrlfd )
+        close(ssinf->ctrlfd); 
+    if ( -1 != ssinf->datafd )
+        close(ssinf->datafd); 
 }
 
 void clear_transfer(session_t* ssinf)

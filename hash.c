@@ -1,6 +1,63 @@
 #include "hash.h"
 #include "common.h"
 
+
+//测试使用
+
+typedef struct str
+{
+    char* name;
+    char* school;
+}stu_t;
+
+unsigned int static hash_fun(void* key,int hash_size)
+{
+    unsigned int hash = 0;
+    char* str = key;
+
+    while ( *str ) 
+    {
+        hash = (*str++) + (hash << 6) + (hash << 16) -hash;
+    }
+
+    return (hash & 0x7FFFFFFF) % hash_size;
+        
+}
+
+void hash_test()
+{
+    stu_t stu[3] = {
+        {"aaa","12345"},
+        {"bbb","dadad"},
+        {"ccc","xxxxx"},
+    };
+
+    hashtable_t* hash = hashtable_init(5,hash_fun);
+    int i = 0;
+    for ( i = 0 ; i < 3 ; ++i)
+    {
+        hashtable_add(hash,stu[i].name,strlen(stu[i].name),stu[i].school,strlen(stu[i].name));
+    }
+
+    hashtable_del(hash,"aaa",strlen("aaa"));
+    hashtable_add(hash,stu[0].name,strlen(stu[0].name),stu[0].school,strlen(stu[0].name));
+
+
+    char *str = hashtable_search(hash,"aaa",3);
+    if  ( NULL == str )
+        printf("not fount\n");
+    else
+        printf("name:\"aaa\",school:%s\n",str);
+
+
+    hashtable_destroy(&hash);
+}
+
+
+
+
+
+//
 typedef struct node
 {
     void* key;

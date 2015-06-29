@@ -401,7 +401,7 @@ int get_datafd(session_t *sess)
 
     if ( has_port(sess))
     {
-        int fd = get_tcpsocket(sess,"192.168.1.3",20);
+        int fd = get_tcpsocket(sess,listenip,20);
 
         //fd = tcp_clnt("192.168.1.3",0);
         /*
@@ -503,12 +503,7 @@ void do_pasv(session_t *sess)
 {
     clear_transfer(sess);
 
-    /*
-    char ip[128];
-    getlocalip(ip);
-    printf("%s\n",ip);
-    */
-    sess->pasv_lsfd = tcp_srv("192.168.1.3",0);
+    sess->pasv_lsfd = tcp_srv(listenip,0);
     
     struct sockaddr_in srvaddr;
     socklen_t socklen = sizeof(srvaddr);

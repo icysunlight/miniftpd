@@ -36,6 +36,7 @@ typedef struct session
 }session_t;
 
 int begin_session(session_t* sessioninf);
+void clear_session(session_t* sessioninf);
 void init_session(session_t* sessioninf,int fd);
 void clear_transfer(session_t* ssinf);
 int has_port(session_t *sess);

@@ -11,5 +11,7 @@ int hashtable_del(hashtable_t* hash,void* key,int key_size);
 void* hashtable_search(hashtable_t* hash,void* key,int key_size);
 
 
+//测试使用
+void hash_test();
 
 #endif

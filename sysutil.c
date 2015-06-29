@@ -103,7 +103,7 @@ int tcp_clnt(const char* host,const unsigned short port)
 
     return fd;
 }
-
+/*
 int getlocalip(char *ip)
 {
     char host[100] = {0};
@@ -115,6 +115,25 @@ int getlocalip(char *ip)
 
     strcpy(ip, inet_ntoa(*((struct in_addr*)hp->h_addr_list)));
     return 0;
+}
+*/
+int getlocalip(char *ip)
+{
+    int sockfd; 
+    if(-1 == (sockfd = socket(PF_INET, SOCK_STREAM, 0)))
+    {
+        perror( "socket" );
+        return -1;
+    }
+    struct ifreq req;
+    struct sockaddr_in *host;
+    bzero(&req, sizeof(struct ifreq));
+    strcpy(req.ifr_name, "eth0"); 
+    ioctl(sockfd, SIOCGIFADDR, &req);
+    host = (struct sockaddr_in*)&req.ifr_addr;
+    strcpy(ip, inet_ntoa(host->sin_addr));
+    close(sockfd);
+    return 1;
 }
 
 /**

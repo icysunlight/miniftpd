@@ -21,12 +21,14 @@
 #include <sys/wait.h>
 #include <sys/syscall.h>
 #include <sys/sendfile.h>
+#include <sys/ioctl.h>
 #include <netinet/in.h>
 #include <netinet/tcp.h>
+#include <net/if.h>
 #include <arpa/inet.h>
 #include <linux/capability.h>
-
 #include <crypt.h>
+#include <pwd.h>
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -35,6 +37,8 @@
 
 #define MAXCMDLINE 1024
 #define CONFFILE "./miniftpd.conf"
+
+extern char* listenip;
 
 #define ERR_EXIT(m) \
         do \
