@@ -1,0 +1,651 @@
+S	project.vim	/^imap S <Plug>ISurround$/;"	m
+s	project.vim	/^imap s <Plug>Isurround$/;"	m
+	project.vim	/^imap  <Left>$/;"	m
+	project.vim	/^noremap  h$/;"	m
+		project.vim	/^inoremap <silent> 	 =TriggerSnippet()$/;"	m
+	project.vim	/^nnoremap   @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')$/;"	m
+	project.vim	/^imap  <Up>$/;"	m
+	project.vim	/^noremap  k$/;"	m
+	project.vim	/^imap  <Right>$/;"	m
+	project.vim	/^noremap  l$/;"	m
+	project.vim	/^nnoremap <silent>  :CtrlP$/;"	m
+	project.vim	/^nnoremap <silent>  :call repeat#wrap("\\<C-R>",v:count)$/;"	m
+		project.vim	/^inoremap <silent> 	 =ShowAvailableSnips()$/;"	m
+	project.vim	/^imap  <Plug>Isurround$/;"	m
+o	project.vim	/^nmap o <Plug>ZoomWin$/;"	m
+	project.vim	/^inoremap <expr>  omni#cpp#maycomplete#Complete()$/;"	m
+,	project.vim	/^imap , <Plug>(emmet-expand-abbr)$/;"	m
+,	project.vim	/^nmap , <Plug>(emmet-expand-abbr)$/;"	m
+,	project.vim	/^vmap , <Plug>(emmet-expand-abbr)$/;"	m
+/	project.vim	/^imap \/ <Plug>(emmet-toogle-comment)$/;"	m
+/	project.vim	/^nmap \/ <Plug>(emmet-toogle-comment)$/;"	m
+;	project.vim	/^imap ; <Plug>(emmet-expand-word)$/;"	m
+;	project.vim	/^nmap ; <Plug>(emmet-expand-word)$/;"	m
+A	project.vim	/^imap A <Plug>(emmet-anchorize-summary)$/;"	m
+A	project.vim	/^nmap A <Plug>(emmet-anchorize-summary)$/;"	m
+D	project.vim	/^imap D <Plug>(emmet-balance-tag-outword)$/;"	m
+D	project.vim	/^nmap D <Plug>(emmet-balance-tag-outword)$/;"	m
+D	project.vim	/^vmap D <Plug>(emmet-balance-tag-outword)$/;"	m
+N	project.vim	/^imap N <Plug>(emmet-move-prev)$/;"	m
+N	project.vim	/^nmap N <Plug>(emmet-move-prev)$/;"	m
+a	project.vim	/^imap a <Plug>(emmet-anchorize-url)$/;"	m
+a	project.vim	/^nmap a <Plug>(emmet-anchorize-url)$/;"	m
+c	project.vim	/^vmap c <Plug>(emmet-code-pretty)$/;"	m
+d	project.vim	/^imap d <Plug>(emmet-balance-tag-inward)$/;"	m
+d	project.vim	/^nmap d <Plug>(emmet-balance-tag-inward)$/;"	m
+d	project.vim	/^vmap d <Plug>(emmet-balance-tag-inward)$/;"	m
+i	project.vim	/^imap i <Plug>(emmet-image-size)$/;"	m
+i	project.vim	/^nmap i <Plug>(emmet-image-size)$/;"	m
+j	project.vim	/^imap j <Plug>(emmet-split-join-tag)$/;"	m
+j	project.vim	/^nmap j <Plug>(emmet-split-join-tag)$/;"	m
+k	project.vim	/^imap k <Plug>(emmet-remove-tag)$/;"	m
+k	project.vim	/^nmap k <Plug>(emmet-remove-tag)$/;"	m
+m	project.vim	/^vmap m <Plug>(emmet-merge-lines)$/;"	m
+n	project.vim	/^imap n <Plug>(emmet-move-next)$/;"	m
+n	project.vim	/^nmap n <Plug>(emmet-move-next)$/;"	m
+u	project.vim	/^imap u <Plug>(emmet-update-tag)$/;"	m
+u	project.vim	/^nmap u <Plug>(emmet-update-tag)$/;"	m
+c	project.vim	/^nmap c :cs find c =expand("<cword>")$/;"	m
+d	project.vim	/^nmap d :cs find d =expand("<cword>")$/;"	m
+e	project.vim	/^nmap e :cs find e =expand("<cword>")$/;"	m
+f	project.vim	/^nmap f :cs find f =expand("<cfile>")$/;"	m
+g	project.vim	/^nmap g :cs find g =expand("<cword>")$/;"	m
+i	project.vim	/^nmap i :cs find i ^=expand("<cfile>")$/;"	m
+s	project.vim	/^nmap s :cs find s =expand("<cword>")$/;"	m
+t	project.vim	/^nmap t :cs find t =expand("<cword>")$/;"	m
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+#	project.vim	/^nmap # <Plug>MarkSearchPrev$/;"	m
+#	project.vim	/^vnoremap <silent> # y?=substitute(escape(@", '.*\\\\\/[]'), "\\n", '\\\\n', 'g')$/;"	m
+*	project.vim	/^nmap * <Plug>MarkSearchNext$/;"	m
+*	project.vim	/^vnoremap <silent> * y\/=substitute(escape(@", '.*\\\\\/[]'), "\\n", '\\\\n', 'g')$/;"	m
+.	project.vim	/^inoremap <expr> . omni#cpp#maycomplete#Dot()$/;"	m
+.	project.vim	/^nnoremap <silent> . :call repeat#run(v:count)$/;"	m
+0	project.vim	/^normal! 0$/;"	m
+:	project.vim	/^inoremap <expr> : omni#cpp#maycomplete#Scope()$/;"	m
+;	project.vim	/^map <buffer> ;  :w$/;"	m
+;#	project.vim	/^nmap ;# <Plug>MarkSearchCurrentPrev$/;"	m
+;*	project.vim	/^nmap ;* <Plug>MarkSearchCurrentNext$/;"	m
+;/	project.vim	/^nmap ;\/ <Plug>MarkSearchAnyNext$/;"	m
+;?	project.vim	/^nmap ;? <Plug>MarkSearchAnyPrev$/;"	m
+;Htd	project.vim	/^map ;Htd <Plug>AM_Htd$/;"	m
+;T<	project.vim	/^nmap ;T< <Plug>AM_T<$/;"	m
+;T<	project.vim	/^vmap <silent> ;T< :call AlignMaps#Vis("T<")$/;"	m
+;T|	project.vim	/^nmap ;T| <Plug>AM_T|$/;"	m
+;T|	project.vim	/^vmap <silent> ;T| :call AlignMaps#Vis("T|")$/;"	m
+;T#	project.vim	/^nmap ;T# <Plug>AM_T#$/;"	m
+;T#	project.vim	/^vmap <silent> ;T# :call AlignMaps#Vis("T#")$/;"	m
+;T,	project.vim	/^nmap ;T, <Plug>AM_T,$/;"	m
+;T,	project.vim	/^vmap <silent> ;T, :call AlignMaps#Vis("T,")$/;"	m
+;T:	project.vim	/^nmap ;T: <Plug>AM_T:$/;"	m
+;T:	project.vim	/^vmap <silent> ;T: :call AlignMaps#Vis("T:")$/;"	m
+;T;	project.vim	/^nmap ;T; <Plug>AM_T;$/;"	m
+;T;	project.vim	/^vmap <silent> ;T; :call AlignMaps#Vis("T;")$/;"	m
+;T=	project.vim	/^nmap ;T= <Plug>AM_T=$/;"	m
+;T=	project.vim	/^vmap <silent> ;T= :call AlignMaps#Vis("T=")$/;"	m
+;T?	project.vim	/^nmap ;T? <Plug>AM_T?$/;"	m
+;T?	project.vim	/^vmap <silent> ;T? :call AlignMaps#Vis("T?")$/;"	m
+;T@	project.vim	/^nmap ;T@ <Plug>AM_T@$/;"	m
+;T@	project.vim	/^vmap <silent> ;T@ :call AlignMaps#Vis("T@")$/;"	m
+;TW@	project.vim	/^nmap ;TW@ <Plug>AM_TW@$/;"	m
+;TW@	project.vim	/^vmap <silent> ;TW@ :call AlignMaps#Vis("TW@")$/;"	m
+;Tab	project.vim	/^nmap ;Tab <Plug>AM_Tab$/;"	m
+;Tab	project.vim	/^vmap <silent> ;Tab :call AlignMaps#Vis("Tab")$/;"	m
+;Ts,	project.vim	/^nmap ;Ts, <Plug>AM_Ts,$/;"	m
+;Ts,	project.vim	/^vmap <silent> ;Ts, :call AlignMaps#Vis("Ts,")$/;"	m
+;Tsp	project.vim	/^nmap ;Tsp <Plug>AM_Tsp$/;"	m
+;Tsp	project.vim	/^vmap <silent> ;Tsp :call AlignMaps#Vis("Tsp")$/;"	m
+;T~	project.vim	/^nmap ;T~ <Plug>AM_T~$/;"	m
+;T~	project.vim	/^vmap <silent> ;T~ :call AlignMaps#Vis("T~")$/;"	m
+;a<	project.vim	/^nmap ;a< <Plug>AM_a<$/;"	m
+;a<	project.vim	/^vmap <silent> ;a< :call AlignMaps#Vis("a<")$/;"	m
+;a(	project.vim	/^nmap ;a( <Plug>AM_a($/;"	m
+;a(	project.vim	/^vmap <silent> ;a( :call AlignMaps#Vis("a(")$/;"	m
+;a,	project.vim	/^nmap ;a, <Plug>AM_a,$/;"	m
+;a,	project.vim	/^vmap <silent> ;a, :call AlignMaps#Vis("a,")$/;"	m
+;a=	project.vim	/^nmap ;a= <Plug>AM_a=$/;"	m
+;a=	project.vim	/^vmap <silent> ;a= :call AlignMaps#Vis("a=")$/;"	m
+;a?	project.vim	/^nmap ;a? <Plug>AM_a?$/;"	m
+;a?	project.vim	/^vmap <silent> ;a? :call AlignMaps#Vis("a?")$/;"	m
+;abox	project.vim	/^nmap ;abox <Plug>AM_abox$/;"	m
+;abox	project.vim	/^vmap <silent> ;abox :call AlignMaps#Vis("abox")$/;"	m
+;acom	project.vim	/^nmap ;acom <Plug>AM_acom$/;"	m
+;acom	project.vim	/^vmap <silent> ;acom :call AlignMaps#Vis("acom")$/;"	m
+;adcom	project.vim	/^nmap ;adcom <Plug>AM_adcom$/;"	m
+;adcom	project.vim	/^vmap <silent> ;adcom :call AlignMaps#Vis("adcom")$/;"	m
+;adec	project.vim	/^nmap ;adec <Plug>AM_adec$/;"	m
+;adec	project.vim	/^vmap <silent> ;adec :call AlignMaps#Vis("adec")$/;"	m
+;adef	project.vim	/^nmap ;adef <Plug>AM_adef$/;"	m
+;adef	project.vim	/^vmap <silent> ;adef :call AlignMaps#Vis("adef")$/;"	m
+;aenum	project.vim	/^nmap ;aenum <Plug>AM_aenum$/;"	m
+;aenum	project.vim	/^vmap <silent> ;aenum :call AlignMaps#Vis("aenum")$/;"	m
+;afnc	project.vim	/^nmap ;afnc <Plug>AM_afnc$/;"	m
+;afnc	project.vim	/^vmap <silent> ;afnc :call AlignMaps#Vis("afnc")$/;"	m
+;anum	project.vim	/^nmap ;anum <Plug>AM_anum$/;"	m
+;anum	project.vim	/^vmap <silent> ;anum :call AlignMaps#Vis("anum")$/;"	m
+;aocom	project.vim	/^nmap ;aocom <Plug>AM_aocom$/;"	m
+;aocom	project.vim	/^vmap <silent> ;aocom :call AlignMaps#Vis("aocom")$/;"	m
+;ascom	project.vim	/^nmap ;ascom <Plug>AM_ascom$/;"	m
+;ascom	project.vim	/^vmap <silent> ;ascom :call AlignMaps#Vis("ascom")$/;"	m
+;aunum	project.vim	/^nmap ;aunum <Plug>AM_aunum$/;"	m
+;aunum	project.vim	/^vmap <silent> ;aunum :call AlignMaps#Vis("aunum")$/;"	m
+;c	project.vim	/^nmap ;c  <Plug>NERDCommenterToggle$/;"	m
+;c$	project.vim	/^nmap ;c$ <Plug>NERDCommenterToEOL$/;"	m
+;cA	project.vim	/^nmap ;cA <Plug>NERDCommenterAppend$/;"	m
+;ca	project.vim	/^nmap ;ca <Plug>NERDCommenterAltDelims$/;"	m
+;cb	project.vim	/^nmap ;cb <Plug>NERDCommenterAlignBoth$/;"	m
+;cc	project.vim	/^nmap ;cc <Plug>NERDCommenterComment$/;"	m
+;ch	project.vim	/^nmap ;ch :A$/;"	m
+;ci	project.vim	/^nmap ;ci <Plug>NERDCommenterInvert$/;"	m
+;cl	project.vim	/^nmap ;cl <Plug>NERDCommenterAlignLeft$/;"	m
+;cm	project.vim	/^nmap ;cm <Plug>NERDCommenterMinimal$/;"	m
+;cn	project.vim	/^nmap ;cn :cn$/;"	m
+;co	project.vim	/^nmap ;co :copen$/;"	m
+;cp	project.vim	/^nmap ;cp :cp$/;"	m
+;cs	project.vim	/^nmap ;cs <Plug>NERDCommenterSexy$/;"	m
+;cu	project.vim	/^nmap ;cu <Plug>NERDCommenterUncomment$/;"	m
+;cw	project.vim	/^nmap ;cw :cw 10$/;"	m
+;cy	project.vim	/^nmap ;cy <Plug>NERDCommenterYank$/;"	m
+;ee	project.vim	/^map <silent> ;ee :e ~\/.vimrc$/;"	m
+;ih	project.vim	/^imap ;ih :IHS$/;"	m
+;ih	project.vim	/^nmap ;ih :IHS$/;"	m
+;ihn	project.vim	/^imap ;ihn :IHN$/;"	m
+;ihn	project.vim	/^nmap ;ihn :IHN$/;"	m
+;il	project.vim	/^nmap ;il :IndentLinesToggle$/;"	m
+;is	project.vim	/^imap ;is :IHS$/;"	m
+;is	project.vim	/^nmap ;is :IHS$/;"	m
+;m	project.vim	/^nmap ;m <Plug>MarkSet$/;"	m
+;m=	project.vim	/^nmap ;m= <Plug>AM_m=$/;"	m
+;m=	project.vim	/^vmap <silent> ;m= :call AlignMaps#Vis("m=")$/;"	m
+;n	project.vim	/^nmap ;n <Plug>MarkClear$/;"	m
+;r	project.vim	/^nmap ;r <Plug>MarkRegex$/;"	m
+;rwp	project.vim	/^map ;rwp <Plug>RestoreWinPosn$/;"	m
+;sc	project.vim	/^map ;sc :call ConfigSymbs()  $/;"	m
+;sch	project.vim	/^nmap ;sch :AS$/;"	m
+;ss	project.vim	/^map <silent> ;ss :source ~\/.vimrc$/;"	m
+;swp	project.vim	/^map ;swp <Plug>SaveWinPosn$/;"	m
+;sy	project.vim	/^map ;sy :call SyncSource()   $/;"	m
+;t<	project.vim	/^nmap ;t< <Plug>AM_t<$/;"	m
+;t<	project.vim	/^vmap <silent> ;t< :call AlignMaps#Vis("t<")$/;"	m
+;t|	project.vim	/^nmap ;t| <Plug>AM_t|$/;"	m
+;t|	project.vim	/^vmap <silent> ;t| :call AlignMaps#Vis("t|")$/;"	m
+;t#	project.vim	/^nmap ;t# <Plug>AM_t#$/;"	m
+;t#	project.vim	/^vmap <silent> ;t# :call AlignMaps#Vis("t#")$/;"	m
+;t,	project.vim	/^nmap ;t, <Plug>AM_t,$/;"	m
+;t,	project.vim	/^vmap <silent> ;t, :call AlignMaps#Vis("t,")$/;"	m
+;t:	project.vim	/^nmap ;t: <Plug>AM_t:$/;"	m
+;t:	project.vim	/^vmap <silent> ;t: :call AlignMaps#Vis("t:")$/;"	m
+;t;	project.vim	/^nmap ;t; <Plug>AM_t;$/;"	m
+;t;	project.vim	/^vmap <silent> ;t; :call AlignMaps#Vis("t;")$/;"	m
+;t=	project.vim	/^nmap ;t= <Plug>AM_t=$/;"	m
+;t=	project.vim	/^vmap <silent> ;t= :call AlignMaps#Vis("t=")$/;"	m
+;t?	project.vim	/^nmap ;t? <Plug>AM_t?$/;"	m
+;t?	project.vim	/^vmap <silent> ;t? :call AlignMaps#Vis("t?")$/;"	m
+;t@	project.vim	/^nmap ;t@ <Plug>AM_t@$/;"	m
+;t@	project.vim	/^vmap <silent> ;t@ :call AlignMaps#Vis("t@")$/;"	m
+;tW@	project.vim	/^nmap ;tW@ <Plug>AM_tW@$/;"	m
+;tW@	project.vim	/^vmap <silent> ;tW@ :call AlignMaps#Vis("tW@")$/;"	m
+;tab	project.vim	/^nmap ;tab <Plug>AM_tab$/;"	m
+;tab	project.vim	/^vmap <silent> ;tab :call AlignMaps#Vis("tab")$/;"	m
+;tml	project.vim	/^nmap ;tml <Plug>AM_tml$/;"	m
+;tml	project.vim	/^vmap <silent> ;tml :call AlignMaps#Vis("tml")$/;"	m
+;ts<	project.vim	/^nmap ;ts< <Plug>AM_ts<$/;"	m
+;ts<	project.vim	/^vmap <silent> ;ts< :call AlignMaps#Vis("ts<")$/;"	m
+;ts,	project.vim	/^nmap ;ts, <Plug>AM_ts,$/;"	m
+;ts,	project.vim	/^vmap <silent> ;ts, :call AlignMaps#Vis("ts,")$/;"	m
+;ts:	project.vim	/^nmap ;ts: <Plug>AM_ts:$/;"	m
+;ts:	project.vim	/^vmap <silent> ;ts: :call AlignMaps#Vis("ts:")$/;"	m
+;ts;	project.vim	/^nmap ;ts; <Plug>AM_ts;$/;"	m
+;ts;	project.vim	/^vmap <silent> ;ts; :call AlignMaps#Vis("ts;")$/;"	m
+;ts=	project.vim	/^nmap ;ts= <Plug>AM_ts=$/;"	m
+;ts=	project.vim	/^vmap <silent> ;ts= :call AlignMaps#Vis("ts=")$/;"	m
+;tsp	project.vim	/^nmap ;tsp <Plug>AM_tsp$/;"	m
+;tsp	project.vim	/^vmap <silent> ;tsp :call AlignMaps#Vis("tsp")$/;"	m
+;tsq	project.vim	/^nmap ;tsq <Plug>AM_tsq$/;"	m
+;tsq	project.vim	/^vmap <silent> ;tsq :call AlignMaps#Vis("tsq")$/;"	m
+;tt	project.vim	/^nmap ;tt <Plug>AM_tt$/;"	m
+;tt	project.vim	/^vmap <silent> ;tt :call AlignMaps#Vis("tt")$/;"	m
+;t~	project.vim	/^nmap ;t~ <Plug>AM_t~$/;"	m
+;t~	project.vim	/^vmap <silent> ;t~ :call AlignMaps#Vis("t~")$/;"	m
+;w=	project.vim	/^nmap ;w= <Plug>AM_w=$/;"	m
+;w=	project.vim	/^vmap <silent> ;w= :call AlignMaps#Vis("w=")$/;"	m
+;wb	project.vim	/^nmap <silent> ;wb :FirstExplorerWindow$/;"	m
+;wd	project.vim	/^nmap <silent> ;wd :BottomExplorerWindow$/;"	m
+;wm	project.vim	/^nmap <silent> ;wm :WMToggle$/;"	m
+<C-F10>	project.vim	/^imap <C-F10> :call Link()$/;"	m
+<C-F10>	project.vim	/^nmap <C-F10> :call Link()$/;"	m
+<C-F9>	project.vim	/^imap <C-F9> :call Compile()$/;"	m
+<C-F9>	project.vim	/^nmap <C-F9> :call Compile()$/;"	m
+<C-k1>	project.vim	/^nmap <C-k1> <Plug>MarkSearchGroup1Prev$/;"	m
+<C-k2>	project.vim	/^nmap <C-k2> <Plug>MarkSearchGroup2Prev$/;"	m
+<C-k3>	project.vim	/^nmap <C-k3> <Plug>MarkSearchGroup3Prev$/;"	m
+<C-k4>	project.vim	/^nmap <C-k4> <Plug>MarkSearchGroup4Prev$/;"	m
+<C-k5>	project.vim	/^nmap <C-k5> <Plug>MarkSearchGroup5Prev$/;"	m
+<C-k6>	project.vim	/^nmap <C-k6> <Plug>MarkSearchGroup6Prev$/;"	m
+<C-k7>	project.vim	/^nmap <C-k7> <Plug>MarkSearchGroup7Prev$/;"	m
+<C-k8>	project.vim	/^nmap <C-k8> <Plug>MarkSearchGroup8Prev$/;"	m
+<C-k9>	project.vim	/^nmap <C-k9> <Plug>MarkSearchGroup9Prev$/;"	m
+<F2>	project.vim	/^nmap <F2> :NERDTreeToggle$/;"	m
+<F3>	project.vim	/^nmap <F3> :SrcExplToggle$/;"	m
+<F9>	project.vim	/^imap <F9> :call Run()$/;"	m
+<F9>	project.vim	/^nmap <F9> :call Run()$/;"	m
+<NL>	project.vim	/^imap <NL> <Down>$/;"	m
+<NL>	project.vim	/^noremap <NL> j$/;"	m
+<Plug>(emmet-anchorize-summary)	project.vim	/^inoremap <Plug>(emmet-anchorize-summary) =emmet#util#closePopup()$/;"	m
+<Plug>(emmet-anchorize-summary)	project.vim	/^nnoremap <Plug>(emmet-anchorize-summary) :call emmet#anchorizeURL(1)$/;"	m
+<Plug>(emmet-anchorize-url)	project.vim	/^inoremap <Plug>(emmet-anchorize-url) =emmet#util#closePopup()$/;"	m
+<Plug>(emmet-anchorize-url)	project.vim	/^nnoremap <Plug>(emmet-anchorize-url) :call emmet#anchorizeURL(0)$/;"	m
+<Plug>(emmet-balance-tag-inward)	project.vim	/^inoremap <Plug>(emmet-balance-tag-inward) :call emmet#balanceTag(1)$/;"	m
+<Plug>(emmet-balance-tag-inward)	project.vim	/^nnoremap <Plug>(emmet-balance-tag-inward) :call emmet#balanceTag(1)$/;"	m
+<Plug>(emmet-balance-tag-inward)	project.vim	/^vnoremap <Plug>(emmet-balance-tag-inward) :call emmet#balanceTag(2)$/;"	m
+<Plug>(emmet-balance-tag-outword)	project.vim	/^inoremap <Plug>(emmet-balance-tag-outword) :call emmet#balanceTag(-1)$/;"	m
+<Plug>(emmet-balance-tag-outword)	project.vim	/^nnoremap <Plug>(emmet-balance-tag-outword) :call emmet#balanceTag(-1)$/;"	m
+<Plug>(emmet-balance-tag-outword)	project.vim	/^vnoremap <Plug>(emmet-balance-tag-outword) :call emmet#balanceTag(-2)$/;"	m
+<Plug>(emmet-code-pretty)	project.vim	/^vnoremap <Plug>(emmet-code-pretty) :call emmet#codePretty()$/;"	m
+<Plug>(emmet-expand-abbr)	project.vim	/^inoremap <Plug>(emmet-expand-abbr) =emmet#util#closePopup()$/;"	m
+<Plug>(emmet-expand-abbr)	project.vim	/^nnoremap <Plug>(emmet-expand-abbr) :call emmet#expandAbbr(3,"")$/;"	m
+<Plug>(emmet-expand-abbr)	project.vim	/^vnoremap <Plug>(emmet-expand-abbr) :call emmet#expandAbbr(2,"")$/;"	m
+<Plug>(emmet-expand-word)	project.vim	/^inoremap <Plug>(emmet-expand-word) =emmet#util#closePopup()$/;"	m
+<Plug>(emmet-expand-word)	project.vim	/^nnoremap <Plug>(emmet-expand-word) :call emmet#expandAbbr(1,"")$/;"	m
+<Plug>(emmet-image-size)	project.vim	/^inoremap <Plug>(emmet-image-size) =emmet#util#closePopup()$/;"	m
+<Plug>(emmet-image-size)	project.vim	/^nnoremap <Plug>(emmet-image-size) :call emmet#imageSize()$/;"	m
+<Plug>(emmet-merge-lines)	project.vim	/^vnoremap <Plug>(emmet-merge-lines) :call emmet#mergeLines()$/;"	m
+<Plug>(emmet-move-next)	project.vim	/^inoremap <Plug>(emmet-move-next) :call emmet#moveNextPrev(0)$/;"	m
+<Plug>(emmet-move-next)	project.vim	/^nnoremap <Plug>(emmet-move-next) :call emmet#moveNextPrev(0)$/;"	m
+<Plug>(emmet-move-prev)	project.vim	/^inoremap <Plug>(emmet-move-prev) :call emmet#moveNextPrev(1)$/;"	m
+<Plug>(emmet-move-prev)	project.vim	/^nnoremap <Plug>(emmet-move-prev) :call emmet#moveNextPrev(1)$/;"	m
+<Plug>(emmet-remove-tag)	project.vim	/^inoremap <Plug>(emmet-remove-tag) =emmet#util#closePopup()$/;"	m
+<Plug>(emmet-remove-tag)	project.vim	/^nnoremap <Plug>(emmet-remove-tag) :call emmet#removeTag()$/;"	m
+<Plug>(emmet-split-join-tag)	project.vim	/^inoremap <Plug>(emmet-split-join-tag) :call emmet#splitJoinTag()$/;"	m
+<Plug>(emmet-split-join-tag)	project.vim	/^nnoremap <Plug>(emmet-split-join-tag) :call emmet#splitJoinTag()$/;"	m
+<Plug>(emmet-toogle-comment)	project.vim	/^inoremap <Plug>(emmet-toogle-comment) =emmet#util#closePopup()$/;"	m
+<Plug>(emmet-toogle-comment)	project.vim	/^nnoremap <Plug>(emmet-toogle-comment) :call emmet#toggleComment()$/;"	m
+<Plug>(emmet-update-tag)	project.vim	/^inoremap <Plug>(emmet-update-tag) =emmet#util#closePopup()$/;"	m
+<Plug>(emmet-update-tag)	project.vim	/^nnoremap <Plug>(emmet-update-tag) :call emmet#updateTag()$/;"	m
+<Plug>(neocomplcache_start_auto_complete)	project.vim	/^inoremap <silent> <Plug>(neocomplcache_start_auto_complete) =neocomplcache#mappings#popup_post()$/;"	m
+<Plug>(neocomplcache_start_auto_complete_no_select)	project.vim	/^inoremap <silent> <Plug>(neocomplcache_start_auto_complete_no_select) $/;"	m
+<Plug>(neocomplcache_start_omni_complete)	project.vim	/^inoremap <silent> <Plug>(neocomplcache_start_omni_complete) $/;"	m
+<Plug>(neocomplcache_start_unite_complete)	project.vim	/^inoremap <silent> <expr> <Plug>(neocomplcache_start_unite_complete) unite#sources#neocomplcache#start_complete()$/;"	m
+<Plug>(neocomplcache_start_unite_quick_match)	project.vim	/^inoremap <silent> <expr> <Plug>(neocomplcache_start_unite_quick_match) unite#sources#neocomplcache#start_quick_match()$/;"	m
+<Plug>MarkAllClear	project.vim	/^nnoremap <silent> <Plug>MarkAllClear :call mark#ClearAll()$/;"	m
+<Plug>MarkClear	project.vim	/^nnoremap <silent> <Plug>MarkClear :if !mark#DoMark(v:count, (v:count ? '' : mark#CurrentMark()[0]))[0]|execute "normal! \\<C-\\>\\<C-n>\\<Esc>"|endif$/;"	m
+<Plug>MarkIWhiteSet	project.vim	/^vnoremap <silent> <Plug>MarkIWhiteSet :if !mark#DoMark(v:count, mark#GetVisualSelectionAsLiteralWhitespaceIndifferentPattern())[0]|execute "normal! \\<C-\\>\\<C-n>\\<Esc>"|endif$/;"	m
+<Plug>MarkRegex	project.vim	/^nnoremap <silent> <Plug>MarkRegex :if !mark#MarkRegex(v:count, '')|execute "normal! \\<C-\\>\\<C-n>\\<Esc>"|if ! empty(v:errmsg)|echoerr v:errmsg|endif|endif$/;"	m
+<Plug>MarkRegex	project.vim	/^vnoremap <silent> <Plug>MarkRegex :if !mark#MarkRegex(v:count, mark#GetVisualSelectionAsRegexp())|execute "normal! \\<C-\\>\\<C-n>\\<Esc>"|if ! empty(v:errmsg)|echoerr v:errmsg|endif|endif$/;"	m
+<Plug>MarkSearchAnyNext	project.vim	/^nnoremap <silent> <Plug>MarkSearchAnyNext :call mark#SearchAnyMark(0)$/;"	m
+<Plug>MarkSearchAnyPrev	project.vim	/^nnoremap <silent> <Plug>MarkSearchAnyPrev :call mark#SearchAnyMark(1)$/;"	m
+<Plug>MarkSearchCurrentNext	project.vim	/^nnoremap <silent> <Plug>MarkSearchCurrentNext :call mark#SearchCurrentMark(0)$/;"	m
+<Plug>MarkSearchCurrentPrev	project.vim	/^nnoremap <silent> <Plug>MarkSearchCurrentPrev :call mark#SearchCurrentMark(1)$/;"	m
+<Plug>MarkSearchGroup1Next	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup1Next :call mark#SearchGroupMark(1, v:count1, 0, 1)$/;"	m
+<Plug>MarkSearchGroup1Prev	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup1Prev :call mark#SearchGroupMark(1, v:count1, 1, 1)$/;"	m
+<Plug>MarkSearchGroup2Next	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup2Next :call mark#SearchGroupMark(2, v:count1, 0, 1)$/;"	m
+<Plug>MarkSearchGroup2Prev	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup2Prev :call mark#SearchGroupMark(2, v:count1, 1, 1)$/;"	m
+<Plug>MarkSearchGroup3Next	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup3Next :call mark#SearchGroupMark(3, v:count1, 0, 1)$/;"	m
+<Plug>MarkSearchGroup3Prev	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup3Prev :call mark#SearchGroupMark(3, v:count1, 1, 1)$/;"	m
+<Plug>MarkSearchGroup4Next	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup4Next :call mark#SearchGroupMark(4, v:count1, 0, 1)$/;"	m
+<Plug>MarkSearchGroup4Prev	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup4Prev :call mark#SearchGroupMark(4, v:count1, 1, 1)$/;"	m
+<Plug>MarkSearchGroup5Next	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup5Next :call mark#SearchGroupMark(5, v:count1, 0, 1)$/;"	m
+<Plug>MarkSearchGroup5Prev	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup5Prev :call mark#SearchGroupMark(5, v:count1, 1, 1)$/;"	m
+<Plug>MarkSearchGroup6Next	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup6Next :call mark#SearchGroupMark(6, v:count1, 0, 1)$/;"	m
+<Plug>MarkSearchGroup6Prev	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup6Prev :call mark#SearchGroupMark(6, v:count1, 1, 1)$/;"	m
+<Plug>MarkSearchGroup7Next	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup7Next :call mark#SearchGroupMark(7, v:count1, 0, 1)$/;"	m
+<Plug>MarkSearchGroup7Prev	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup7Prev :call mark#SearchGroupMark(7, v:count1, 1, 1)$/;"	m
+<Plug>MarkSearchGroup8Next	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup8Next :call mark#SearchGroupMark(8, v:count1, 0, 1)$/;"	m
+<Plug>MarkSearchGroup8Prev	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup8Prev :call mark#SearchGroupMark(8, v:count1, 1, 1)$/;"	m
+<Plug>MarkSearchGroup9Next	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup9Next :call mark#SearchGroupMark(9, v:count1, 0, 1)$/;"	m
+<Plug>MarkSearchGroup9Prev	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroup9Prev :call mark#SearchGroupMark(9, v:count1, 1, 1)$/;"	m
+<Plug>MarkSearchGroupNext	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroupNext :call mark#SearchGroupMark(v:count, 1, 0, 1)$/;"	m
+<Plug>MarkSearchGroupPrev	project.vim	/^nnoremap <silent> <Plug>MarkSearchGroupPrev :call mark#SearchGroupMark(v:count, 1, 1, 1)$/;"	m
+<Plug>MarkSearchNext	project.vim	/^nnoremap <silent> <Plug>MarkSearchNext :if !mark#SearchNext(0)|execute 'normal! *zv'|endif$/;"	m
+<Plug>MarkSearchOrAnyNext	project.vim	/^nnoremap <silent> <Plug>MarkSearchOrAnyNext :if !mark#SearchNext(0,'mark#SearchAnyMark')|execute 'normal! *zv'|endif$/;"	m
+<Plug>MarkSearchOrAnyPrev	project.vim	/^nnoremap <silent> <Plug>MarkSearchOrAnyPrev :if !mark#SearchNext(1,'mark#SearchAnyMark')|execute 'normal! #zv'|endif$/;"	m
+<Plug>MarkSearchOrCurNext	project.vim	/^nnoremap <silent> <Plug>MarkSearchOrCurNext :if !mark#SearchNext(0,'mark#SearchCurrentMark')|execute 'normal! *zv'|endif$/;"	m
+<Plug>MarkSearchOrCurPrev	project.vim	/^nnoremap <silent> <Plug>MarkSearchOrCurPrev :if !mark#SearchNext(1,'mark#SearchCurrentMark')|execute 'normal! #zv'|endif$/;"	m
+<Plug>MarkSearchPrev	project.vim	/^nnoremap <silent> <Plug>MarkSearchPrev :if !mark#SearchNext(1)|execute 'normal! #zv'|endif$/;"	m
+<Plug>MarkSet	project.vim	/^nnoremap <silent> <Plug>MarkSet :if !mark#MarkCurrentWord(v:count)|execute "normal! \\<C-\\>\\<C-n>\\<Esc>"|endif$/;"	m
+<Plug>MarkSet	project.vim	/^vnoremap <silent> <Plug>MarkSet :if !mark#DoMark(v:count, mark#GetVisualSelectionAsLiteralPattern())[0]|execute "normal! \\<C-\\>\\<C-n>\\<Esc>"|endif$/;"	m
+<Plug>MarkToggle	project.vim	/^nnoremap <silent> <Plug>MarkToggle :call mark#Toggle()$/;"	m
+<Plug>NERDCommenterAlignBoth	project.vim	/^nnoremap <silent> <Plug>NERDCommenterAlignBoth :call NERDComment("n", "AlignBoth")$/;"	m
+<Plug>NERDCommenterAlignLeft	project.vim	/^nnoremap <silent> <Plug>NERDCommenterAlignLeft :call NERDComment("n", "AlignLeft")$/;"	m
+<Plug>NERDCommenterAppend	project.vim	/^nnoremap <silent> <Plug>NERDCommenterAppend :call NERDComment("n", "Append")$/;"	m
+<Plug>NERDCommenterComment	project.vim	/^nnoremap <silent> <Plug>NERDCommenterComment :call NERDComment("n", "Comment")$/;"	m
+<Plug>NERDCommenterInsert	project.vim	/^inoremap <silent> <Plug>NERDCommenterInsert  <BS>:call NERDComment('i', "insert")$/;"	m
+<Plug>NERDCommenterInvert	project.vim	/^nnoremap <silent> <Plug>NERDCommenterInvert :call NERDComment("n", "Invert")$/;"	m
+<Plug>NERDCommenterMinimal	project.vim	/^nnoremap <silent> <Plug>NERDCommenterMinimal :call NERDComment("n", "Minimal")$/;"	m
+<Plug>NERDCommenterNested	project.vim	/^nnoremap <silent> <Plug>NERDCommenterNested :call NERDComment("n", "Nested")$/;"	m
+<Plug>NERDCommenterSexy	project.vim	/^nnoremap <silent> <Plug>NERDCommenterSexy :call NERDComment("n", "Sexy")$/;"	m
+<Plug>NERDCommenterToEOL	project.vim	/^nnoremap <silent> <Plug>NERDCommenterToEOL :call NERDComment("n", "ToEOL")$/;"	m
+<Plug>NERDCommenterToggle	project.vim	/^nnoremap <silent> <Plug>NERDCommenterToggle :call NERDComment("n", "Toggle")$/;"	m
+<Plug>NERDCommenterUncomment	project.vim	/^nnoremap <silent> <Plug>NERDCommenterUncomment :call NERDComment("n", "Uncomment")$/;"	m
+<Plug>NERDCommenterYank	project.vim	/^nnoremap <silent> <Plug>NERDCommenterYank :call NERDComment("n", "Yank")$/;"	m
+<Plug>NetrwBrowseX	project.vim	/^nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)$/;"	m
+<Plug>RestoreWinPosn	project.vim	/^nmap <silent> <Plug>RestoreWinPosn :call RestoreWinPosn()$/;"	m
+<Plug>SaveWinPosn	project.vim	/^nmap <silent> <Plug>SaveWinPosn :call SaveWinPosn()$/;"	m
+<Plug>SurroundRepeat	project.vim	/^nnoremap <silent> <Plug>SurroundRepeat .$/;"	m
+<S-Tab>	project.vim	/^inoremap <silent> <S-Tab> =BackwardsSnippet()$/;"	m
+<SNR>15_WE	project.vim	/^nmap <SNR>15_WE <Plug>AlignMapsWrapperEnd$/;"	m
+<SNR>15_WS	project.vim	/^map <SNR>15_WS <Plug>AlignMapsWrapperStart$/;"	m
+<k1>	project.vim	/^nmap <k1> <Plug>MarkSearchGroup1Next$/;"	m
+<k2>	project.vim	/^nmap <k2> <Plug>MarkSearchGroup2Next$/;"	m
+<k3>	project.vim	/^nmap <k3> <Plug>MarkSearchGroup3Next$/;"	m
+<k4>	project.vim	/^nmap <k4> <Plug>MarkSearchGroup4Next$/;"	m
+<k5>	project.vim	/^nmap <k5> <Plug>MarkSearchGroup5Next$/;"	m
+<k6>	project.vim	/^nmap <k6> <Plug>MarkSearchGroup6Next$/;"	m
+<k7>	project.vim	/^nmap <k7> <Plug>MarkSearchGroup7Next$/;"	m
+<k8>	project.vim	/^nmap <k8> <Plug>MarkSearchGroup8Next$/;"	m
+<k9>	project.vim	/^nmap <k9> <Plug>MarkSearchGroup9Next$/;"	m
+>	project.vim	/^inoremap <expr> > omni#cpp#maycomplete#Arrow()$/;"	m
+BIN	Makefile	/^BIN=miniftpd$/;"	m
+CC	Makefile	/^CC=gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS=-Wall -g$/;"	m
+CONFFILE	common.h	37;"	d
+ERR_EXIT	common.h	39;"	d
+ERR_EXIT	echoclnt.c	17;"	d	file:
+FTPIPC_GET_DATA_FD	ftpipc.h	6;"	d
+FTPIPC_RET_BAD	ftpipc.h	9;"	d
+FTPIPC_RET_OK	ftpipc.h	8;"	d
+FTP_ABOROK	ftpcodes.h	30;"	d
+FTP_ABOR_NOCONN	ftpcodes.h	28;"	d
+FTP_ALLOOK	ftpcodes.h	17;"	d
+FTP_AUTHOK	ftpcodes.h	34;"	d
+FTP_BADAUTH	ftpcodes.h	63;"	d
+FTP_BADCMD	ftpcodes.h	54;"	d
+FTP_BADMODE	ftpcodes.h	62;"	d
+FTP_BADOPTS	ftpcodes.h	55;"	d
+FTP_BADPBSZ	ftpcodes.h	59;"	d
+FTP_BADPROT	ftpcodes.h	60;"	d
+FTP_BADSENDCONN	ftpcodes.h	51;"	d
+FTP_BADSENDFILE	ftpcodes.h	53;"	d
+FTP_BADSENDNET	ftpcodes.h	52;"	d
+FTP_BADSTRU	ftpcodes.h	61;"	d
+FTP_CHMODFAIL	ftpcodes.h	72;"	d
+FTP_CHMODOK	ftpcodes.h	9;"	d
+FTP_COMMANDNOTIMPL	ftpcodes.h	56;"	d
+FTP_CWDFAIL	ftpcodes.h	71;"	d
+FTP_CWDOK	ftpcodes.h	35;"	d
+FTP_DATACONN	ftpcodes.h	4;"	d
+FTP_DATATLSBAD	ftpcodes.h	67;"	d
+FTP_DATA_TIMEOUT	ftpcodes.h	45;"	d
+FTP_DELEOK	ftpcodes.h	37;"	d
+FTP_EPRTOK	ftpcodes.h	7;"	d
+FTP_EPSVALLOK	ftpcodes.h	10;"	d
+FTP_EPSVBAD	ftpcodes.h	66;"	d
+FTP_EPSVOK	ftpcodes.h	32;"	d
+FTP_FEAT	ftpcodes.h	18;"	d
+FTP_FILEFAIL	ftpcodes.h	70;"	d
+FTP_GIVEPWORD	ftpcodes.h	41;"	d
+FTP_GOODBYE	ftpcodes.h	27;"	d
+FTP_GREET	ftpcodes.h	26;"	d
+FTP_HELP	ftpcodes.h	24;"	d
+FTP_IDLE_TIMEOUT	ftpcodes.h	44;"	d
+FTP_IP_DENY	ftpcodes.h	49;"	d
+FTP_IP_LIMIT	ftpcodes.h	48;"	d
+FTP_LOGINERR	ftpcodes.h	68;"	d
+FTP_LOGINOK	ftpcodes.h	33;"	d
+FTP_MDTMOK	ftpcodes.h	21;"	d
+FTP_MKDIROK	ftpcodes.h	40;"	d
+FTP_MODEOK	ftpcodes.h	13;"	d
+FTP_NEEDENCRYPT	ftpcodes.h	65;"	d
+FTP_NEEDRNFR	ftpcodes.h	58;"	d
+FTP_NEEDUSER	ftpcodes.h	57;"	d
+FTP_NOHANDLEPROT	ftpcodes.h	69;"	d
+FTP_NOPERM	ftpcodes.h	73;"	d
+FTP_NOSUCHPROT	ftpcodes.h	64;"	d
+FTP_OPTSOK	ftpcodes.h	16;"	d
+FTP_PASVOK	ftpcodes.h	31;"	d
+FTP_PBSZOK	ftpcodes.h	14;"	d
+FTP_PORTOK	ftpcodes.h	6;"	d
+FTP_PROTOK	ftpcodes.h	15;"	d
+FTP_PWDOK	ftpcodes.h	39;"	d
+FTP_RENAMEOK	ftpcodes.h	38;"	d
+FTP_RESTOK	ftpcodes.h	42;"	d
+FTP_RMDIROK	ftpcodes.h	36;"	d
+FTP_RNFROK	ftpcodes.h	43;"	d
+FTP_SITEHELP	ftpcodes.h	23;"	d
+FTP_SIZEOK	ftpcodes.h	20;"	d
+FTP_STATFILE_OK	ftpcodes.h	22;"	d
+FTP_STATOK	ftpcodes.h	19;"	d
+FTP_STRUOK	ftpcodes.h	11;"	d
+FTP_SYSTOK	ftpcodes.h	25;"	d
+FTP_TLS_FAIL	ftpcodes.h	50;"	d
+FTP_TOO_MANY_USERS	ftpcodes.h	46;"	d
+FTP_TRANSFEROK	ftpcodes.h	29;"	d
+FTP_TYPEOK	ftpcodes.h	5;"	d
+FTP_UMASKOK	ftpcodes.h	8;"	d
+FTP_UPLOADFAIL	ftpcodes.h	74;"	d
+LIBS	Makefile	/^LIBS=-lcrypt$/;"	m
+MAXCMDLINE	common.h	36;"	d
+OBJS	Makefile	/^OBJS=main.o sysutil.o session.o str.o tunable.o \\$/;"	m
+SessionLoad	project.vim	/^let SessionLoad = 1$/;"	v
+U	project.vim	/^nnoremap <silent> U :call repeat#wrap('U',v:count)$/;"	m
+_COMMON_H	common.h	2;"	d
+_FTPCODES_H_	ftpcodes.h	2;"	d
+_FTPIPC_H_	ftpipc.h	2;"	d
+_FTPNOBODY_H_	ftpnobody.h	2;"	d
+_FTPPROTO_H_	ftpproto.h	2;"	d
+_HASH_H_	hash.h	2;"	d
+_PARSECONF_H_	parseconf.h	2;"	d
+_SESSION_H_	session.h	2;"	d
+_STR_H_	str.h	2;"	d
+_SYSUTIL_H_	sysutil.h	2;"	d
+_TUNABLE_H_	tunable.h	2;"	d
+accept_timeout	sysutil.c	/^int accept_timeout(int fd, struct sockaddr_in *addr, unsigned int wait_seconds)$/;"	f
+activate_nonblock	sysutil.c	/^void activate_nonblock(int fd)$/;"	f
+activate_oobinline	sysutil.c	/^int activate_oobinline(int fd)$/;"	f
+activate_sigurg	sysutil.c	/^int activate_sigurg(int fd)$/;"	f
+active_nonblock	echoclnt.c	/^int active_nonblock(int fd)$/;"	f
+add_client	main.c	/^int add_client(unsigned int ip)$/;"	f
+arg	session.h	/^    char arg[MAXCMDLINE];$/;"	m	struct:session
+bASCII	session.h	/^    int bASCII;$/;"	m	struct:session
+b_dataconn	ftpproto.c	/^int b_dataconn;$/;"	v
+bappe	session.h	/^    int bappe;$/;"	m	struct:session
+begin_session	session.c	/^int begin_session(session_t* sessioninf)$/;"	f
+buckets	hash.c	/^    int buckets;$/;"	m	struct:hashtable	file:
+burg	session.h	/^    int burg;$/;"	m	struct:session
+cM	project.vim	/^nmap cM :%s\/\\r$\/\/g$/;"	m
+cS	project.vim	/^nmap cS :%s\/\\s\\+$\/\/g$/;"	m
+capset	ftpnobody.c	/^int capset(cap_user_header_t hdrp,cap_user_data_t datap)$/;"	f
+check_clients	main.c	/^void check_clients(session_t* sess)$/;"	f
+clear_transfer	session.c	/^void clear_transfer(session_t* ssinf)$/;"	f
+clients	main.c	/^static int clients;$/;"	v	file:
+clients	session.h	/^    int clients;$/;"	m	struct:session
+cmd	session.h	/^    char cmd[MAXCMDLINE];$/;"	m	struct:session
+cmd_disconn_start	ftpproto.c	/^int cmd_disconn_start()$/;"	f
+cmdline	session.h	/^    char cmdline[MAXCMDLINE];$/;"	m	struct:session
+conf_bool_array	parseconf.c	/^conf_bool_array[] = $/;"	v	typeref:struct:conf_bool_t	file:
+conf_bool_key	parseconf.c	/^    const char* conf_bool_key;$/;"	m	struct:conf_bool_t	file:
+conf_bool_t	parseconf.c	/^static struct conf_bool_t$/;"	s	file:
+conf_bool_val	parseconf.c	/^    int* conf_bool_val;$/;"	m	struct:conf_bool_t	file:
+conf_str_array	parseconf.c	/^conf_str_array[] = $/;"	v	typeref:struct:conf_str_t	file:
+conf_str_key	parseconf.c	/^    const char* conf_str_key;$/;"	m	struct:conf_str_t	file:
+conf_str_t	parseconf.c	/^static struct conf_str_t$/;"	s	file:
+conf_str_val	parseconf.c	/^    const char** conf_str_val;$/;"	m	struct:conf_str_t	file:
+conf_uint_array	parseconf.c	/^conf_uint_array[] = $/;"	v	typeref:struct:conf_uint_t	file:
+conf_uint_key	parseconf.c	/^    const char* conf_uint_key;$/;"	m	struct:conf_uint_t	file:
+conf_uint_t	parseconf.c	/^static struct conf_uint_t$/;"	s	file:
+conf_uint_val	parseconf.c	/^    unsigned int* conf_uint_val;$/;"	m	struct:conf_uint_t	file:
+connect_timeout	echoclnt.c	/^int connect_timeout(int clntfd,struct sockaddr_in* clntaddr,int timelimit)$/;"	f
+connect_timeout	sysutil.c	/^int connect_timeout(int fd, struct sockaddr_in *addr, unsigned int wait_seconds)$/;"	f
+cs	project.vim	/^nmap cs <Plug>Csurround$/;"	m
+ctrlfd	session.h	/^    int ctrlfd;     \/\/与控制进程相连的客户端套接字$/;"	m	struct:session
+data_disconn_start	ftpproto.c	/^int data_disconn_start()$/;"	f
+datafd	session.h	/^    int datafd;     \/\/数据连接套接字$/;"	m	struct:session
+deactivate_nonblock	sysutil.c	/^void deactivate_nonblock(int fd)$/;"	f
+deactive_nonblock	echoclnt.c	/^int deactive_nonblock(int fd)$/;"	f
+del_client	main.c	/^int del_client(pid_t pid)$/;"	f
+do_abor	ftpproto.c	/^void do_abor(session_t *sess)$/;"	f
+do_appe	ftpproto.c	/^void do_appe(session_t *sess)$/;"	f
+do_cdup	ftpproto.c	/^void do_cdup(session_t *sess)$/;"	f
+do_cwd	ftpproto.c	/^void do_cwd(session_t *sess)$/;"	f
+do_dele	ftpproto.c	/^void do_dele(session_t *sess)$/;"	f
+do_feat	ftpproto.c	/^void do_feat(session_t *sess)$/;"	f
+do_getdatafd	ftpnobody.c	/^void do_getdatafd(session_t* ssinf)$/;"	f
+do_help	ftpproto.c	/^void do_help(session_t *sess)$/;"	f
+do_list	ftpproto.c	/^void do_list(session_t *sess)$/;"	f
+do_mkd	ftpproto.c	/^void do_mkd(session_t *sess)$/;"	f
+do_mode	ftpproto.c	/^void do_mode(session_t *sess)$/;"	f
+do_nlst	ftpproto.c	/^void do_nlst(session_t *sess)$/;"	f
+do_noop	ftpproto.c	/^void do_noop(session_t *sess)$/;"	f
+do_pass	ftpproto.c	/^static void do_pass(session_t* ssinf)$/;"	f	file:
+do_pasv	ftpproto.c	/^void do_pasv(session_t *sess)$/;"	f
+do_port	ftpproto.c	/^void do_port(session_t *sess)$/;"	f
+do_pwd	ftpproto.c	/^void do_pwd(session_t *sess)$/;"	f
+do_quit	ftpproto.c	/^void do_quit(session_t *sess)$/;"	f
+do_rest	ftpproto.c	/^void do_rest(session_t *sess)$/;"	f
+do_retr	ftpproto.c	/^void do_retr(session_t *sess)$/;"	f
+do_rmd	ftpproto.c	/^void do_rmd(session_t *sess)$/;"	f
+do_rnfr	ftpproto.c	/^void do_rnfr(session_t *sess)$/;"	f
+do_rnto	ftpproto.c	/^void do_rnto(session_t *sess)$/;"	f
+do_site	ftpproto.c	/^void do_site(session_t *sess)$/;"	f
+do_site_chmod	ftpproto.c	/^void do_site_chmod(session_t* sess,char* arg)$/;"	f
+do_site_help	ftpproto.c	/^void do_site_help(session_t* sess,char* cmdline)$/;"	f
+do_site_umask	ftpproto.c	/^void do_site_umask(session_t* sess,char* cmdline)$/;"	f
+do_size	ftpproto.c	/^void do_size(session_t *sess)$/;"	f
+do_stat	ftpproto.c	/^void do_stat(session_t *sess)$/;"	f
+do_stor	ftpproto.c	/^void do_stor(session_t *sess)$/;"	f
+do_stru	ftpproto.c	/^void do_stru(session_t *sess)$/;"	f
+do_syst	ftpproto.c	/^void do_syst(session_t *sess)$/;"	f
+do_type	ftpproto.c	/^void do_type(session_t *sess)$/;"	f
+do_user	ftpproto.c	/^static void do_user(session_t* ssinf)$/;"	f	file:
+ds	project.vim	/^nmap ds <Plug>Dsurround$/;"	m
+echo_clnt	echoclnt.c	/^void echo_clnt(int clntfd)$/;"	f
+fc_func	ftpproto.c	/^    void (*fc_func)(session_t*);$/;"	m	struct:ftp_cmd_t	file:
+fc_name	ftpproto.c	/^    const char* fc_name;$/;"	m	struct:ftp_cmd_t	file:
+file_rdlock	sysutil.c	/^int file_rdlock(int filefd)$/;"	f
+file_unlock	sysutil.c	/^int file_unlock(int filefd)$/;"	f
+file_wrlock	sysutil.c	/^int file_wrlock(int filefd)$/;"	f
+ftp_cmd_arr	ftpproto.c	/^ftp_cmd_arr[] = $/;"	v	typeref:struct:ftp_cmd_t	file:
+ftp_cmd_t	ftpproto.c	/^static struct ftp_cmd_t$/;"	s	file:
+ftp_lreply	ftpproto.c	/^int ftp_lreply(session_t* ssinf,int status,const char* text)$/;"	f
+ftp_reply	ftpproto.c	/^int ftp_reply(session_t* ssinf,int status,const char* text)$/;"	f
+ftpipc_close	ftpipc.c	/^void ftpipc_close(session_t* ssinf)$/;"	f
+ftpipc_init	ftpipc.c	/^int ftpipc_init(session_t* ssinf)$/;"	f
+ftpipc_recv_cmd	ftpipc.c	/^int ftpipc_recv_cmd(int fd)$/;"	f
+ftpipc_recv_data	ftpipc.c	/^int ftpipc_recv_data(int fd,void* str,int maxsize)$/;"	f
+ftpipc_recv_fd	ftpipc.c	/^int ftpipc_recv_fd(int fd)$/;"	f
+ftpipc_recv_int	ftpipc.c	/^int ftpipc_recv_int(int fd)$/;"	f
+ftpipc_recv_ret	ftpipc.c	/^int ftpipc_recv_ret(int fd)$/;"	f
+ftpipc_send_cmd	ftpipc.c	/^int ftpipc_send_cmd(int fd,char cmd)$/;"	f
+ftpipc_send_data	ftpipc.c	/^int ftpipc_send_data(int fd,const void* str,int bufsize)$/;"	f
+ftpipc_send_fd	ftpipc.c	/^int ftpipc_send_fd(int fd,int datafd)$/;"	f
+ftpipc_send_int	ftpipc.c	/^int ftpipc_send_int(int fd,int val)$/;"	f
+ftpipc_send_ret	ftpipc.c	/^int ftpipc_send_ret(int fd,int ret)$/;"	f
+ftpipc_setnobody	ftpipc.c	/^void ftpipc_setnobody(session_t* ssinf)$/;"	f
+ftpipc_setproto	ftpipc.c	/^void ftpipc_setproto(session_t* ssinf)$/;"	f
+get_clients_num	main.c	/^int get_clients_num(unsigned int ip)$/;"	f
+get_datafd	ftpproto.c	/^int get_datafd(session_t *sess)$/;"	f
+get_tcpsocket	ftpproto.c	/^int get_tcpsocket(session_t* sess,const char* ip,int nport)$/;"	f
+getfileper	ftpproto.c	/^void getfileper(struct stat* fbuf,char* per)$/;"	f
+getlocalip	sysutil.c	/^int getlocalip(char *ip)$/;"	f
+gx	project.vim	/^nmap gx <Plug>NetrwBrowseX$/;"	m
+handle_ftp	ftpproto.c	/^int handle_ftp(session_t* ssinf)$/;"	f
+handle_pri	ftpnobody.c	/^int handle_pri(session_t* ssinf)$/;"	f
+handle_sigchld	main.c	/^void handle_sigchld(int signal)$/;"	f
+handle_sigurg	ftpproto.c	/^void handle_sigurg(int signal)$/;"	f
+has_pasv	session.c	/^int has_pasv(session_t *sess)$/;"	f
+has_port	session.c	/^int has_port(session_t *sess)$/;"	f
+hash_fun	hash.c	/^    hash_fun_t hash_fun;$/;"	m	struct:hashtable	file:
+hash_fun	main.c	/^unsigned int hash_fun(void* key,int hashtable_size)$/;"	f
+hash_fun_limit	main.c	/^unsigned int hash_fun_limit(void* key,int hashtable_size)$/;"	f
+hash_fun_t	hash.h	/^typedef unsigned int (*hash_fun_t)(void* key,int hashtable_size);$/;"	t
+hash_ip_clients	main.c	/^hashtable_t* hash_ip_clients;$/;"	v
+hash_pid_ip	main.c	/^hashtable_t* hash_pid_ip;$/;"	v
+hash_test	main.c	/^void hash_test()$/;"	f
+hashtable	hash.c	/^struct hashtable$/;"	s	file:
+hashtable_add	hash.c	/^int hashtable_add(hashtable_t* hash,void* key,int key_size,void* val,int val_size)$/;"	f
+hashtable_del	hash.c	/^int hashtable_del(hashtable_t* hash,void* key,int key_size)$/;"	f
+hashtable_destroy	hash.c	/^void hashtable_destroy(hashtable_t** phash)$/;"	f
+hashtable_get_node	hash.c	/^node_t* hashtable_get_node(hashtable_t* hash,void* key,int key_size)$/;"	f
+hashtable_getbucket	hash.c	/^node_t* hashtable_getbucket(hashtable_t* hash,void* key)$/;"	f
+hashtable_init	hash.c	/^hashtable_t* hashtable_init(int buckets,hash_fun_t hash_fun)$/;"	f
+hashtable_search	hash.c	/^void* hashtable_search(hashtable_t* hash,void* key,int key_size)$/;"	f
+hashtable_t	hash.h	/^typedef struct hashtable hashtable_t;$/;"	t	typeref:struct:hashtable
+init_session	session.c	/^void init_session(session_t* ssinf,int conn)$/;"	f
+ip	session.h	/^    unsigned int ip;$/;"	m	struct:session
+ip_clients	session.h	/^    int ip_clients;$/;"	m	struct:session
+is_allspace	str.c	/^int is_allspace(const char* str)$/;"	f
+is_dir	ftpproto.c	/^int is_dir(const char* path)$/;"	f
+is_urg	ftpproto.c	/^void is_urg(session_t* ssinf)$/;"	f
+key	hash.c	/^    void* key;$/;"	m	struct:node	file:
+main	echoclnt.c	/^int main(int argc,const char* argv[])$/;"	f
+main	main.c	/^int main()$/;"	f
+max	echoclnt.c	15;"	d	file:
+name	main.c	/^    char* name;$/;"	m	struct:str	file:
+nobodyfd	session.h	/^    int nobodyfd;   \/\/nobody进程通讯套接字$/;"	m	struct:session
+node	hash.c	/^typedef struct node$/;"	s	file:
+node_t	hash.c	/^}node_t;$/;"	t	typeref:struct:node	file:
+parseconf_load_file	parseconf.c	/^int parseconf_load_file(const char* file)$/;"	f
+parseconf_load_setting	parseconf.c	/^int parseconf_load_setting(char* line)$/;"	f
+pasv_lsfd	session.h	/^    int pasv_lsfd;$/;"	m	struct:session
+pnext	hash.c	/^    struct node* pnext; $/;"	m	struct:node	typeref:struct:node::node	file:
+pnode	hash.c	/^    node_t** pnode;$/;"	m	struct:hashtable	file:
+port_addr	session.h	/^    struct sockaddr_in* port_addr;$/;"	m	struct:session	typeref:struct:session::sockaddr_in
+pprev	hash.c	/^    struct node* pprev;$/;"	m	struct:node	typeref:struct:node::node	file:
+printaddr	sysutil.c	/^void printaddr(struct sockaddr_in* addr)$/;"	f
+printconf	main.c	/^int printconf()$/;"	f
+protofd	session.h	/^    int protofd;    \/\/proto进程通讯套接字$/;"	m	struct:session
+pssinf	ftpproto.c	/^session_t* pssinf;$/;"	v
+ratelim_do	session.c	/^int ratelim_do(session_t* sess,unsigned int maxrate,int nbytes)$/;"	f
+ratelim_init	session.c	/^int ratelim_init(session_t* sess)$/;"	f
+read_timeout	sysutil.c	/^int read_timeout(int fd, unsigned int wait_seconds)$/;"	f
+readline	sysutil.c	/^ssize_t readline(int sockfd, void *buf, size_t maxline)$/;"	f
+readn	echoclnt.c	/^ssize_t readn(int fd, void *buf, size_t count)$/;"	f
+readn	sysutil.c	/^ssize_t readn(int fd, void *buf, size_t count)$/;"	f
+recv_fd	sysutil.c	/^int recv_fd(const int sock_fd)$/;"	f
+recv_peek	sysutil.c	/^ssize_t recv_peek(int sockfd, void *buf, size_t len)$/;"	f
+rest_pos	session.h	/^    long long rest_pos;$/;"	m	struct:session
+rn_filepath	session.h	/^    char* rn_filepath;$/;"	m	struct:session
+s:cpo_save	project.vim	/^let s:cpo_save=&cpo$/;"	v
+s:l	project.vim	/^let s:l = 898 - ((18 * winheight(0) + 18) \/ 37)$/;"	v
+s:so_save	project.vim	/^let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0$/;"	v
+s:sx	project.vim	/^let s:sx = expand("<sfile>:p:r")."x.vim"$/;"	v
+s:wipebuf	project.vim	/^  let s:wipebuf = bufnr('%')$/;"	v
+school	main.c	/^    char* school;$/;"	m	struct:str	file:
+send_fd	sysutil.c	/^void send_fd(int sock_fd, int fd)$/;"	f
+session	session.h	/^typedef struct session$/;"	s
+session_t	session.h	/^}session_t;$/;"	t	typeref:struct:session
+set_minprivilage	ftpnobody.c	/^void set_minprivilage(void)$/;"	f
+signal_cmdalarm	ftpproto.c	/^void signal_cmdalarm(int sigal)$/;"	f
+signal_dataalarm	ftpproto.c	/^void signal_dataalarm(int sigal)$/;"	f
+str	main.c	/^typedef struct str$/;"	s	file:
+str_octal_to_uint	str.c	/^unsigned int str_octal_to_uint(char* str)$/;"	f
+str_split	str.c	/^int str_split(char* str,char *cmd,char* arg,char delim)$/;"	f
+str_trim_crlf	str.c	/^void str_trim_crlf(char* str)$/;"	f
+str_upper	str.c	/^void str_upper(char* str)$/;"	f
+stu_t	main.c	/^}stu_t;$/;"	t	typeref:struct:str	file:
+tb	project.vim	/^nmap tb :TlistClose$/;"	m
+tcp_clnt	sysutil.c	/^int tcp_clnt(const char* host,const unsigned short port)$/;"	f
+tcp_srv	sysutil.c	/^int tcp_srv(const char* host,const unsigned short port)$/;"	f
+tl	project.vim	/^nmap tl :TagbarClose$/;"	m
+transfer_list	ftpproto.c	/^void transfer_list(int datafd,const char* pathname)$/;"	f
+ts_sec	session.h	/^    unsigned int ts_sec;$/;"	m	struct:session
+ts_usec	session.h	/^    unsigned int ts_usec;$/;"	m	struct:session
+tunable_accept_timeout	tunable.c	/^unsigned int tunable_accept_timeout = 60;$/;"	v
+tunable_connect_timeout	tunable.c	/^unsigned int tunable_connect_timeout = 0;$/;"	v
+tunable_data_connection_timeout	tunable.c	/^unsigned int tunable_data_connection_timeout = 300;$/;"	v
+tunable_download_max_rate	tunable.c	/^unsigned int tunable_download_max_rate = 204800;$/;"	v
+tunable_idle_session_timeout	tunable.c	/^unsigned int tunable_idle_session_timeout = 300;$/;"	v
+tunable_listen_address	tunable.c	/^const char *tunable_listen_address = NULL;$/;"	v
+tunable_listen_port	tunable.c	/^unsigned int tunable_listen_port = 21;$/;"	v
+tunable_local_umask	tunable.c	/^unsigned int tunable_local_umask = 077;$/;"	v
+tunable_max_clients	tunable.c	/^unsigned int tunable_max_clients = 2000;$/;"	v
+tunable_max_per_ip	tunable.c	/^unsigned int tunable_max_per_ip = 50;$/;"	v
+tunable_pasv_enable	tunable.c	/^int tunable_pasv_enable = 1;$/;"	v
+tunable_port_enable	tunable.c	/^int tunable_port_enable = 1;$/;"	v
+tunable_upload_max_rate	tunable.c	/^unsigned int tunable_upload_max_rate = 102400;$/;"	v
+u	project.vim	/^nnoremap <silent> u :call repeat#wrap('u',v:count)$/;"	m
+username	ftpproto.c	/^char username[128];$/;"	v
+val	hash.c	/^    void* val;$/;"	m	struct:node	file:
+write_timeout	sysutil.c	/^int write_timeout(int fd, unsigned int wait_seconds)$/;"	f
+writen	echoclnt.c	/^ssize_t writen(int fd, void *buf, size_t count)$/;"	f
+writen	sysutil.c	/^ssize_t writen(int fd, const void *buf, size_t count)$/;"	f
+yS	project.vim	/^nmap yS <Plug>YSurround$/;"	m
+ySS	project.vim	/^nmap ySS <Plug>YSsurround$/;"	m
+ySs	project.vim	/^nmap ySs <Plug>YSsurround$/;"	m
+ys	project.vim	/^nmap ys <Plug>Ysurround$/;"	m
+yss	project.vim	/^nmap yss <Plug>Yssurround$/;"	m
+zt	project.vim	/^normal! zt$/;"	m
