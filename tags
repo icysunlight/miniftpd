@@ -65,7 +65,7 @@
 *	project.vim	/^vnoremap <silent> * y\/=substitute(escape(@", '.*\\\\\/[]'), "\\n", '\\\\n', 'g')$/;"	m
 .	project.vim	/^inoremap <expr> . omni#cpp#maycomplete#Dot()$/;"	m
 .	project.vim	/^nnoremap <silent> . :call repeat#run(v:count)$/;"	m
-0	project.vim	/^normal! 0$/;"	m
+020l	project.vim	/^normal! 020l$/;"	m
 :	project.vim	/^inoremap <expr> : omni#cpp#maycomplete#Scope()$/;"	m
 ;	project.vim	/^map <buffer> ;  :w$/;"	m
 ;#	project.vim	/^nmap ;# <Plug>MarkSearchCurrentPrev$/;"	m
@@ -141,7 +141,7 @@
 ;cc	project.vim	/^nmap ;cc <Plug>NERDCommenterComment$/;"	m
 ;ch	project.vim	/^nmap ;ch :A$/;"	m
 ;ci	project.vim	/^nmap ;ci <Plug>NERDCommenterInvert$/;"	m
-;cl	project.vim	/^nmap ;cl <Plug>NERDCommenterAlignLeft$/;"	m
+;cl	project.vim	/^nmap ;cl :close$/;"	m
 ;cm	project.vim	/^nmap ;cm <Plug>NERDCommenterMinimal$/;"	m
 ;cn	project.vim	/^nmap ;cn :cn$/;"	m
 ;co	project.vim	/^nmap ;co :copen$/;"	m
@@ -329,6 +329,8 @@
 <S-Tab>	project.vim	/^inoremap <silent> <S-Tab> =BackwardsSnippet()$/;"	m
 <SNR>15_WE	project.vim	/^nmap <SNR>15_WE <Plug>AlignMapsWrapperEnd$/;"	m
 <SNR>15_WS	project.vim	/^map <SNR>15_WS <Plug>AlignMapsWrapperStart$/;"	m
+<SNR>17_WE	project.vim	/^nmap <SNR>17_WE <Plug>AlignMapsWrapperEnd$/;"	m
+<SNR>17_WS	project.vim	/^map <SNR>17_WS <Plug>AlignMapsWrapperStart$/;"	m
 <k1>	project.vim	/^nmap <k1> <Plug>MarkSearchGroup1Next$/;"	m
 <k2>	project.vim	/^nmap <k2> <Plug>MarkSearchGroup2Next$/;"	m
 <k3>	project.vim	/^nmap <k3> <Plug>MarkSearchGroup3Next$/;"	m
@@ -342,8 +344,8 @@
 BIN	Makefile	/^BIN=miniftpd$/;"	m
 CC	Makefile	/^CC=gcc$/;"	m
 CFLAGS	Makefile	/^CFLAGS=-Wall -g$/;"	m
-CONFFILE	common.h	37;"	d
-ERR_EXIT	common.h	39;"	d
+CONFFILE	common.h	40;"	d
+ERR_EXIT	common.h	44;"	d
 ERR_EXIT	echoclnt.c	17;"	d	file:
 FTPIPC_GET_DATA_FD	ftpipc.h	6;"	d
 FTPIPC_RET_BAD	ftpipc.h	9;"	d
@@ -418,10 +420,11 @@ FTP_TYPEOK	ftpcodes.h	5;"	d
 FTP_UMASKOK	ftpcodes.h	8;"	d
 FTP_UPLOADFAIL	ftpcodes.h	74;"	d
 LIBS	Makefile	/^LIBS=-lcrypt$/;"	m
-MAXCMDLINE	common.h	36;"	d
+MAXCMDLINE	common.h	39;"	d
 OBJS	Makefile	/^OBJS=main.o sysutil.o session.o str.o tunable.o \\$/;"	m
 SessionLoad	project.vim	/^let SessionLoad = 1$/;"	v
 U	project.vim	/^nnoremap <silent> U :call repeat#wrap('U',v:count)$/;"	m
+_CLNTLMT_H_	clntlmt.h	2;"	d
 _COMMON_H	common.h	2;"	d
 _FTPCODES_H_	ftpcodes.h	2;"	d
 _FTPIPC_H_	ftpipc.h	2;"	d
@@ -432,13 +435,13 @@ _PARSECONF_H_	parseconf.h	2;"	d
 _SESSION_H_	session.h	2;"	d
 _STR_H_	str.h	2;"	d
 _SYSUTIL_H_	sysutil.h	2;"	d
+_TEST_H_	test.h	2;"	d
 _TUNABLE_H_	tunable.h	2;"	d
 accept_timeout	sysutil.c	/^int accept_timeout(int fd, struct sockaddr_in *addr, unsigned int wait_seconds)$/;"	f
 activate_nonblock	sysutil.c	/^void activate_nonblock(int fd)$/;"	f
 activate_oobinline	sysutil.c	/^int activate_oobinline(int fd)$/;"	f
 activate_sigurg	sysutil.c	/^int activate_sigurg(int fd)$/;"	f
 active_nonblock	echoclnt.c	/^int active_nonblock(int fd)$/;"	f
-add_client	main.c	/^int add_client(unsigned int ip)$/;"	f
 arg	session.h	/^    char arg[MAXCMDLINE];$/;"	m	struct:session
 bASCII	session.h	/^    int bASCII;$/;"	m	struct:session
 b_dataconn	ftpproto.c	/^int b_dataconn;$/;"	v
@@ -449,10 +452,16 @@ burg	session.h	/^    int burg;$/;"	m	struct:session
 cM	project.vim	/^nmap cM :%s\/\\r$\/\/g$/;"	m
 cS	project.vim	/^nmap cS :%s\/\\s\\+$\/\/g$/;"	m
 capset	ftpnobody.c	/^int capset(cap_user_header_t hdrp,cap_user_data_t datap)$/;"	f
-check_clients	main.c	/^void check_clients(session_t* sess)$/;"	f
+clear_session	session.c	/^void clear_session(session_t* ssinf)$/;"	f
 clear_transfer	session.c	/^void clear_transfer(session_t* ssinf)$/;"	f
-clients	main.c	/^static int clients;$/;"	v	file:
-clients	session.h	/^    int clients;$/;"	m	struct:session
+client_add	clntlmt.c	/^static int client_add(unsigned int ip)$/;"	f	file:
+clients	clntlmt.c	/^int clients;$/;"	v
+clients_ip_get	clntlmt.c	/^static int clients_ip_get(unsigned int ip)$/;"	f	file:
+clntlmt_add	clntlmt.c	/^void clntlmt_add(pid_t pid,unsigned int ip)$/;"	f
+clntlmt_check	clntlmt.c	/^int clntlmt_check(unsigned int ip)$/;"	f
+clntlmt_del	clntlmt.c	/^void clntlmt_del(pid_t pid)$/;"	f
+clntlmt_destroy	clntlmt.c	/^int clntlmt_destroy()$/;"	f
+clntlmt_init	clntlmt.c	/^int clntlmt_init()$/;"	f
 cmd	session.h	/^    char cmd[MAXCMDLINE];$/;"	m	struct:session
 cmd_disconn_start	ftpproto.c	/^int cmd_disconn_start()$/;"	f
 cmdline	session.h	/^    char cmdline[MAXCMDLINE];$/;"	m	struct:session
@@ -476,7 +485,6 @@ data_disconn_start	ftpproto.c	/^int data_disconn_start()$/;"	f
 datafd	session.h	/^    int datafd;     \/\/数据连接套接字$/;"	m	struct:session
 deactivate_nonblock	sysutil.c	/^void deactivate_nonblock(int fd)$/;"	f
 deactive_nonblock	echoclnt.c	/^int deactive_nonblock(int fd)$/;"	f
-del_client	main.c	/^int del_client(pid_t pid)$/;"	f
 do_abor	ftpproto.c	/^void do_abor(session_t *sess)$/;"	f
 do_appe	ftpproto.c	/^void do_appe(session_t *sess)$/;"	f
 do_cdup	ftpproto.c	/^void do_cdup(session_t *sess)$/;"	f
@@ -536,7 +544,6 @@ ftpipc_send_int	ftpipc.c	/^int ftpipc_send_int(int fd,int val)$/;"	f
 ftpipc_send_ret	ftpipc.c	/^int ftpipc_send_ret(int fd,int ret)$/;"	f
 ftpipc_setnobody	ftpipc.c	/^void ftpipc_setnobody(session_t* ssinf)$/;"	f
 ftpipc_setproto	ftpipc.c	/^void ftpipc_setproto(session_t* ssinf)$/;"	f
-get_clients_num	main.c	/^int get_clients_num(unsigned int ip)$/;"	f
 get_datafd	ftpproto.c	/^int get_datafd(session_t *sess)$/;"	f
 get_tcpsocket	ftpproto.c	/^int get_tcpsocket(session_t* sess,const char* ip,int nport)$/;"	f
 getfileper	ftpproto.c	/^void getfileper(struct stat* fbuf,char* per)$/;"	f
@@ -549,12 +556,13 @@ handle_sigurg	ftpproto.c	/^void handle_sigurg(int signal)$/;"	f
 has_pasv	session.c	/^int has_pasv(session_t *sess)$/;"	f
 has_port	session.c	/^int has_port(session_t *sess)$/;"	f
 hash_fun	hash.c	/^    hash_fun_t hash_fun;$/;"	m	struct:hashtable	file:
+hash_fun	hash.c	/^unsigned int static hash_fun(void* key,int hash_size)$/;"	f	file:
 hash_fun	main.c	/^unsigned int hash_fun(void* key,int hashtable_size)$/;"	f
-hash_fun_limit	main.c	/^unsigned int hash_fun_limit(void* key,int hashtable_size)$/;"	f
+hash_fun_limit	clntlmt.c	/^static unsigned int hash_fun_limit(void* key,int hashtable_size)$/;"	f	file:
 hash_fun_t	hash.h	/^typedef unsigned int (*hash_fun_t)(void* key,int hashtable_size);$/;"	t
-hash_ip_clients	main.c	/^hashtable_t* hash_ip_clients;$/;"	v
-hash_pid_ip	main.c	/^hashtable_t* hash_pid_ip;$/;"	v
-hash_test	main.c	/^void hash_test()$/;"	f
+hash_ip_clients	clntlmt.c	/^hashtable_t* hash_ip_clients;$/;"	v
+hash_pid_ip	clntlmt.c	/^hashtable_t* hash_pid_ip;$/;"	v
+hash_test	hash.c	/^void hash_test()$/;"	f
 hashtable	hash.c	/^struct hashtable$/;"	s	file:
 hashtable_add	hash.c	/^int hashtable_add(hashtable_t* hash,void* key,int key_size,void* val,int val_size)$/;"	f
 hashtable_del	hash.c	/^int hashtable_del(hashtable_t* hash,void* key,int key_size)$/;"	f
@@ -566,15 +574,15 @@ hashtable_search	hash.c	/^void* hashtable_search(hashtable_t* hash,void* key,int
 hashtable_t	hash.h	/^typedef struct hashtable hashtable_t;$/;"	t	typeref:struct:hashtable
 init_session	session.c	/^void init_session(session_t* ssinf,int conn)$/;"	f
 ip	session.h	/^    unsigned int ip;$/;"	m	struct:session
-ip_clients	session.h	/^    int ip_clients;$/;"	m	struct:session
 is_allspace	str.c	/^int is_allspace(const char* str)$/;"	f
 is_dir	ftpproto.c	/^int is_dir(const char* path)$/;"	f
 is_urg	ftpproto.c	/^void is_urg(session_t* ssinf)$/;"	f
 key	hash.c	/^    void* key;$/;"	m	struct:node	file:
+listenip	main.c	/^char* listenip = NULL;$/;"	v
 main	echoclnt.c	/^int main(int argc,const char* argv[])$/;"	f
 main	main.c	/^int main()$/;"	f
 max	echoclnt.c	15;"	d	file:
-name	main.c	/^    char* name;$/;"	m	struct:str	file:
+name	hash.c	/^    char* name;$/;"	m	struct:str	file:
 nobodyfd	session.h	/^    int nobodyfd;   \/\/nobody进程通讯套接字$/;"	m	struct:session
 node	hash.c	/^typedef struct node$/;"	s	file:
 node_t	hash.c	/^}node_t;$/;"	t	typeref:struct:node	file:
@@ -586,7 +594,7 @@ pnode	hash.c	/^    node_t** pnode;$/;"	m	struct:hashtable	file:
 port_addr	session.h	/^    struct sockaddr_in* port_addr;$/;"	m	struct:session	typeref:struct:session::sockaddr_in
 pprev	hash.c	/^    struct node* pprev;$/;"	m	struct:node	typeref:struct:node::node	file:
 printaddr	sysutil.c	/^void printaddr(struct sockaddr_in* addr)$/;"	f
-printconf	main.c	/^int printconf()$/;"	f
+printconf	test.c	/^int printconf()$/;"	f
 protofd	session.h	/^    int protofd;    \/\/proto进程通讯套接字$/;"	m	struct:session
 pssinf	ftpproto.c	/^session_t* pssinf;$/;"	v
 ratelim_do	session.c	/^int ratelim_do(session_t* sess,unsigned int maxrate,int nbytes)$/;"	f
@@ -600,23 +608,23 @@ recv_peek	sysutil.c	/^ssize_t recv_peek(int sockfd, void *buf, size_t len)$/;"	f
 rest_pos	session.h	/^    long long rest_pos;$/;"	m	struct:session
 rn_filepath	session.h	/^    char* rn_filepath;$/;"	m	struct:session
 s:cpo_save	project.vim	/^let s:cpo_save=&cpo$/;"	v
-s:l	project.vim	/^let s:l = 898 - ((18 * winheight(0) + 18) \/ 37)$/;"	v
+s:l	project.vim	/^let s:l = 17 - ((16 * winheight(0) + 18) \/ 37)$/;"	v
 s:so_save	project.vim	/^let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0$/;"	v
 s:sx	project.vim	/^let s:sx = expand("<sfile>:p:r")."x.vim"$/;"	v
 s:wipebuf	project.vim	/^  let s:wipebuf = bufnr('%')$/;"	v
-school	main.c	/^    char* school;$/;"	m	struct:str	file:
+school	hash.c	/^    char* school;$/;"	m	struct:str	file:
 send_fd	sysutil.c	/^void send_fd(int sock_fd, int fd)$/;"	f
 session	session.h	/^typedef struct session$/;"	s
 session_t	session.h	/^}session_t;$/;"	t	typeref:struct:session
 set_minprivilage	ftpnobody.c	/^void set_minprivilage(void)$/;"	f
 signal_cmdalarm	ftpproto.c	/^void signal_cmdalarm(int sigal)$/;"	f
 signal_dataalarm	ftpproto.c	/^void signal_dataalarm(int sigal)$/;"	f
-str	main.c	/^typedef struct str$/;"	s	file:
+str	hash.c	/^typedef struct str$/;"	s	file:
 str_octal_to_uint	str.c	/^unsigned int str_octal_to_uint(char* str)$/;"	f
 str_split	str.c	/^int str_split(char* str,char *cmd,char* arg,char delim)$/;"	f
 str_trim_crlf	str.c	/^void str_trim_crlf(char* str)$/;"	f
 str_upper	str.c	/^void str_upper(char* str)$/;"	f
-stu_t	main.c	/^}stu_t;$/;"	t	typeref:struct:str	file:
+stu_t	hash.c	/^}stu_t;$/;"	t	typeref:struct:str	file:
 tb	project.vim	/^nmap tb :TlistClose$/;"	m
 tcp_clnt	sysutil.c	/^int tcp_clnt(const char* host,const unsigned short port)$/;"	f
 tcp_srv	sysutil.c	/^int tcp_srv(const char* host,const unsigned short port)$/;"	f

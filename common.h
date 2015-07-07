@@ -34,6 +34,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <assert.h>
 
 #define MAXCMDLINE 1024
 #define CONFFILE "./miniftpd.conf"

@@ -29,8 +29,7 @@ typedef struct session
 
     int burg;
 
-    int clients;
-    int ip_clients;
+
 
     unsigned int ip;
 }session_t;

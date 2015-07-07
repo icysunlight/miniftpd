@@ -2,11 +2,11 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <silent> <expr> <Plug>(neocomplcache_start_unite_complete) unite#sources#neocomplcache#start_complete()
-inoremap <silent> <expr> <Plug>(neocomplcache_start_unite_quick_match) unite#sources#neocomplcache#start_quick_match()
-inoremap <silent> <Plug>(neocomplcache_start_auto_complete) =neocomplcache#mappings#popup_post()
-inoremap <silent> <Plug>(neocomplcache_start_auto_complete_no_select) 
 inoremap <silent> <Plug>(neocomplcache_start_omni_complete) 
+inoremap <silent> <Plug>(neocomplcache_start_auto_complete_no_select) 
+inoremap <silent> <Plug>(neocomplcache_start_auto_complete) =neocomplcache#mappings#popup_post()
+inoremap <silent> <expr> <Plug>(neocomplcache_start_unite_quick_match) unite#sources#neocomplcache#start_quick_match()
+inoremap <silent> <expr> <Plug>(neocomplcache_start_unite_complete) unite#sources#neocomplcache#start_complete()
 inoremap <silent> <S-Tab> =BackwardsSnippet()
 inoremap <silent> <Plug>NERDCommenterInsert  <BS>:call NERDComment('i', "insert")
 inoremap <Plug>(emmet-anchorize-summary) =emmet#util#closePopup()=emmet#anchorizeURL(1)
@@ -68,8 +68,8 @@ snoremap ' b<BS>'
 vnoremap <silent> * y/=substitute(escape(@", '.*\\/[]'), "\n", '\\n', 'g')
 nmap * <Plug>MarkSearchNext
 nnoremap <silent> . :call repeat#run(v:count)
-nmap ;cw :cw 10
 xmap ;cn <Plug>NERDCommenterNested
+nmap ;cw :cw 10
 nmap ;ca <Plug>NERDCommenterAltDelims
 xmap ;cu <Plug>NERDCommenterUncomment
 nmap ;cu <Plug>NERDCommenterUncomment
@@ -219,7 +219,7 @@ nmap ;ch :A
 nmap <silent> ;wm :WMToggle 
 nmap <silent> ;wd :BottomExplorerWindow
 nmap <silent> ;wb :FirstExplorerWindow
-nmap ;cl <Plug>NERDCommenterAlignLeft
+nmap ;cl :close
 nmap ;co :copen
 nmap ;cp :cp
 nmap ;cn :cn
@@ -245,8 +245,10 @@ nmap ySs <Plug>YSsurround
 nmap yss <Plug>Yssurround
 nmap yS <Plug>YSurround
 nmap ys <Plug>Ysurround
-nnoremap <silent> <Plug>NERDCommenterNested :call NERDComment("n", "Nested")
+map <SNR>15_WS <Plug>AlignMapsWrapperStart
+nmap <SNR>15_WE <Plug>AlignMapsWrapperEnd
 xnoremap <silent> <Plug>NERDCommenterNested :call NERDComment("x", "Nested")
+nnoremap <silent> <Plug>NERDCommenterNested :call NERDComment("n", "Nested")
 snoremap <Left> bi
 snoremap <Right> a
 snoremap <BS> b<BS>
@@ -349,8 +351,8 @@ vnoremap <Plug>(emmet-expand-abbr) :call emmet#expandAbbr(2,"")
 nnoremap <Plug>(emmet-expand-abbr) :call emmet#expandAbbr(3,"")
 nmap <silent> <Plug>RestoreWinPosn :call RestoreWinPosn()
 nmap <silent> <Plug>SaveWinPosn :call SaveWinPosn()
-nmap <SNR>15_WE <Plug>AlignMapsWrapperEnd
-map <SNR>15_WS <Plug>AlignMapsWrapperStart
+nmap <SNR>17_WE <Plug>AlignMapsWrapperEnd
+map <SNR>17_WS <Plug>AlignMapsWrapperStart
 nmap <F3> :SrcExplToggle                "打开/闭浏览窗口
 nmap <F2> :NERDTreeToggle
 nmap <C-F10> :call Link()
@@ -391,13 +393,15 @@ set autoread
 set background=dark
 set backspace=2
 set completefunc=neocomplcache#complete#manual_complete
-set completeopt=menuone
+set completeopt=menu
+set cscopeprg=/usr/bin/cscope
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 set cscopetag
 set cscopeverbose
 set expandtab
 set fileencodings=ucs-bom,utf-8,gbk,cp936,latin-1
 set fileformats=unix,dos,mac
+set guicursor=n-v-c:block,o:hor50,i-ci:hor15,r-cr:hor30,sm:block,a:blinkon0
 set helplang=cn
 set hidden
 set hlsearch
@@ -406,6 +410,7 @@ set incsearch
 set nomodeline
 set mouse=a
 set omnifunc=omni#cpp#complete#Main
+set ruler
 set runtimepath=~/.vim,~/.vim/bundle/vundle,~/.vim/bundle/a.vim,~/.vim/bundle/Align,~/.vim/bundle/bufexplorer.zip,~/.vim/bundle/ccvext.vim,~/.vim/bundle/cSyntaxAfter,~/.vim/bundle/ctrlp.vim,~/.vim/bundle/emmet-vim,~/.vim/bundle/vim-javacompleteex,~/.vim/bundle/Mark--Karkat,~/.vim/bundle/neocomplcache.vim,~/.vim/bundle/nerdcommenter,~/.vim/bundle/nerdtree,~/.vim/bundle/OmniCppComplete,~/.vim/bundle/repeat.vim,~/.vim/bundle/snipmate.vim,~/.vim/bundle/SrcExpl,~/.vim/bundle/std_c.zip,~/.vim/bundle/vim-surround,~/.vim/bundle/tagbar,~/.vim/bundle/taglist.vim,~/.vim/bundle/TxtBrowser,~/.vim/bundle/ZoomWin,~/.vim/bundle/indentpython.vim,~/.vim/bundle/winmanager,~/.vim/bundle/syntastic,~/.vim/bundle/vim-powerline,~/.vim/bundle/indentLine,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim74,/usr/local/share/vim/vimfiles/after,~/.vim/after,~/.vim/bundle/vundle/,~/.vim/bundle/vundle/after,~/.vim/bundle/a.vim/after,~/.vim/bundle/Align/after,~/.vim/bundle/bufexplorer.zip/after,~/.vim/bundle/ccvext.vim/after,~/.vim/bundle/cSyntaxAfter/after,~/.vim/bundle/ctrlp.vim/after,~/.vim/bundle/emmet-vim/after,~/.vim/bundle/vim-javacompleteex/after,~/.vim/bundle/Mark--Karkat/after,~/.vim/bundle/neocomplcache.vim/after,~/.vim/bundle/nerdcommenter/after,~/.vim/bundle/nerdtree/after,~/.vim/bundle/OmniCppComplete/after,~/.vim/bundle/repeat.vim/after,~/.vim/bundle/snipmate.vim/after,~/.vim/bundle/SrcExpl/after,~/.vim/bundle/std_c.zip/after,~/.vim/bundle/vim-surround/after,~/.vim/bundle/tagbar/after,~/.vim/bundle/taglist.vim/after,~/.vim/bundle/TxtBrowser/after,~/.vim/bundle/ZoomWin/after,~/.vim/bundle/indentpython.vim/after,~/.vim/bundle/winmanager/after,~/.vim/bundle/syntastic/after,~/.vim/bundle/vim-powerline/after,~/.vim/bundle/indentLine/after
 set sessionoptions=blank,buffers,folds,help,options,tabpages,winsize,sesdir,slash,unix
 set shiftwidth=4
@@ -423,31 +428,35 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +23 ftpipc.c
-badd +3 ftpnobody.c
-badd +541 ftpproto.c
-badd +61 main.c
+badd +87 ftpnobody.c
+badd +477 ftpproto.c
+badd +143 main.c
 badd +68 parseconf.c
-badd +29 session.c
+badd +6 session.c
 badd +43 str.c
-badd +288 sysutil.c
-badd +11 tunable.c
-badd +46 common.h
+badd +124 sysutil.c
+badd +17 tunable.c
+badd +30 common.h
 badd +72 ftpcodes.h
 badd +1 ftpipc.h
 badd +6 ftpnobody.h
 badd +7 ftpproto.h
 badd +1 parseconf.h
-badd +13 session.h
+badd +39 session.h
 badd +5 str.h
-badd +12 sysutil.h
+badd +20 sysutil.h
 badd +1 tunable.h
 badd +213 echoclnt.c
 badd +20 miniftpd.conf
-badd +118 hash.c
-badd +9 hash.h
-badd +301 miniftpd
-badd +630 tags
-args ~/code/linuxstudy/miniftpd/miniftpd.conf
+badd +156 hash.c
+badd +14 hash.h
+badd +35 miniftpd
+badd +32 ftpproto.o
+badd +2 test.c
+badd +4 test.h
+badd +42 clntlmt.c
+badd +8 clntlmt.h
+args ~/code/linuxstudy/miniftpd/test.h
 edit main.c
 set splitbelow splitright
 set nosplitbelow
@@ -463,20 +472,15 @@ setlocal nobinary
 setlocal bufhidden=
 setlocal buflisted
 setlocal buftype=
-setlocal cindent
+setlocal nocindent
 setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
 setlocal completefunc=neocomplcache#complete#manual_complete
 setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal nocursorline
 setlocal define=
@@ -499,7 +503,7 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=croql
+setlocal formatoptions=tcq
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
 setlocal iminsert=0
@@ -528,7 +532,6 @@ setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
 setlocal noreadonly
-setlocal norelativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
 setlocal noscrollbind
@@ -551,19 +554,18 @@ setlocal tabstop=4
 setlocal tags=
 setlocal textwidth=0
 setlocal thesaurus=
-setlocal noundofile
 setlocal nowinfixheight
 setlocal nowinfixwidth
 set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 58 - ((23 * winheight(0) + 18) / 37)
+let s:l = 17 - ((16 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-58
-normal! 05|
+17
+normal! 020l
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

@@ -20,9 +20,6 @@ void init_session(session_t* ssinf,int conn)
 
     ssinf->burg = 0;
 
-    ssinf->clients = 0;
-    ssinf->ip_clients = 0;
-
     ssinf->ip = 0;
 }
 

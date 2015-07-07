@@ -6,20 +6,11 @@
 #include "hash.h"
 #include "ftpcodes.h"
 #include "ftpproto.h"
+#include "clntlmt.h"
+#include "test.h"
 
 
-
-//客户端连接数限制
-static int clients;
-void check_clients(session_t* sess);
 void handle_sigchld(int signal);
-//每ip连接数限制
-hashtable_t* hash_ip_clients;
-hashtable_t* hash_pid_ip;
-int get_clients_num(unsigned int ip);
-int add_client(unsigned int ip);
-int del_client(pid_t pid);
-unsigned int hash_fun_limit(void* key,int hashtable_size);
 
 char* listenip = NULL;
 
@@ -44,16 +35,16 @@ int main()
     printconf();
     hash_test();
 
-    clients = 0;
     umask(tunable_local_umask);
 
-    hash_ip_clients = hashtable_init(2 * tunable_max_clients,hash_fun_limit);
-    hash_pid_ip = hashtable_init(2 * tunable_max_clients,hash_fun_limit);
     signal(SIGCHLD,handle_sigchld);
     int listenfd = tcp_srv(listenip,5188);
     
     pid_t pid;
     int conn;
+    
+
+    clntlmt_init();
 
     //daemon(0,0);
 
@@ -67,9 +58,10 @@ int main()
         
         session_t sessioninf;
         init_session(&sessioninf,conn);
-        sessioninf.ip = addr.sin_addr.s_addr;
-        sessioninf.clients = ++clients;
-        sessioninf.ip_clients = add_client(addr.sin_addr.s_addr);
+
+        int lmt_fd[2];
+        if ( -1 == socketpair(AF_UNIX,SOCK_STREAM,0,lmt_fd) )
+            ERR_EXIT("socketpair");
 
         pid = fork();
         if (-1 == pid)
@@ -80,21 +72,49 @@ int main()
         {
             signal(SIGCHLD,SIG_IGN);
             close(listenfd);
-            check_clients(&sessioninf);
+            close(lmt_fd[0]);
+            char cmd = '\0';
+            readn(lmt_fd[1],&cmd,1);
+            if ( cmd == 'r' )
+            {
+                close(lmt_fd[1]);
+            }
+            else if ( cmd == 'i' )
+            {
+                close(lmt_fd[1]);
+                ftp_reply(&sessioninf,FTP_TOO_MANY_USERS,"There are too many connections from your internet address");
+                exit(EXIT_FAILURE);    
+            }
+            else 
+            {
+                close(lmt_fd[1]);
+                ftp_reply(&sessioninf,FTP_TOO_MANY_USERS,"There are too many connected users, please try later");
+                exit(EXIT_FAILURE);    
+            }
             begin_session(&sessioninf);
             break;
         }
         if (pid > 0)
         {
-            //添加信号，先将pid和ip加入限制，再运行子程序
-            hashtable_add(hash_pid_ip,&pid,sizeof(pid),&addr.sin_addr.s_addr,sizeof(addr.sin_addr.s_addr));
+            close(lmt_fd[1]);
+            //检查是否满足limit限制
+            clntlmt_add(pid,addr.sin_addr.s_addr);
+            int ret = clntlmt_check(addr.sin_addr.s_addr);
+            if ( 0 == ret )
+            {
+                writen(lmt_fd[0],"r",1);
+            }
+            if ( -1 == ret )
+            {
+            }
+            else if ( -2 == ret )
+                printf("max clients total.\n");    
             close(conn);
+            close(lmt_fd[0]);
         }
     }
         
 
-    hashtable_destroy(&hash_ip_clients);
-    hashtable_destroy(&hash_pid_ip);
     free(listenip);
 
     return 0;
@@ -114,19 +134,6 @@ unsigned int hash_fun(void* key,int hashtable_size)
     return ( hash & 0x7fffffff ) % hashtable_size;
 }
 
-void check_clients(session_t* sess)
-{
-    if ( tunable_max_per_ip > 0 && sess->ip_clients > tunable_max_per_ip)
-    {
-        ftp_reply(sess,FTP_TOO_MANY_USERS,"There are too many connected users, please try later.");
-        exit(EXIT_FAILURE);
-    }
-    if ( tunable_max_clients > 0 && sess->clients > tunable_max_clients )
-    {
-        ftp_reply(sess,FTP_TOO_MANY_USERS,"There are too many connected users, please try later.");
-        exit(EXIT_FAILURE);
-    }
-}
 /*
  * 接收子进程退出消息，维护clients变量和每ip客户端数目
  */
@@ -135,49 +142,6 @@ void handle_sigchld(int signal)
     pid_t pid;
     while ( ( pid=waitpid( -1,NULL,WNOHANG)) > 0 )
     {
-       clients--; 
-       del_client(pid);
+        clntlmt_del(pid);
     }
 }
-int get_clients_num(unsigned int ip)
-{
-    int* ret = hashtable_search(hash_ip_clients,&ip,sizeof(ip));
-    if ( NULL == ret )
-        return 0;
-    else
-        return *ret;    
-}
-int add_client(unsigned int ip)
-{
-    int* ret = hashtable_search(hash_ip_clients,&ip,sizeof(ip));
-    if ( NULL != ret ) 
-    {
-        *ret = *ret + 1;
-        return *ret;
-    }
-    else 
-    {
-        int val = 1;
-        hashtable_add(hash_ip_clients,&ip,sizeof(ip),&val,sizeof(ret));
-        return 1;
-    }
-}
-int del_client(pid_t pid)
-{
-    unsigned int* ip = hashtable_search(hash_pid_ip,&pid,sizeof(pid));
-    int* ret = hashtable_search(hash_ip_clients,ip,sizeof(*ip));
-    if ( 1 == *ret )
-        hashtable_del(hash_ip_clients,ip,sizeof(*ip));
-    else 
-        *ret = *ret - 1;
-
-    hashtable_del(hash_pid_ip,&pid,sizeof(pid));
-
-    return 0;
-}
-unsigned int hash_fun_limit(void* key,int hashtable_size)
-{
-    unsigned int* ip = key;
-    return *ip % hashtable_size;
-}
-
